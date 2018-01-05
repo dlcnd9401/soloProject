@@ -1,0 +1,40 @@
+<section>
+<div class ="board_big_box">
+    <div class ="board_head">
+    <p> 공지 사항 / 자유 게시판 / 연재 게시판 </p>
+    </div>
+    <div class ="board_box">
+    <table class="table">
+  <thead>
+  <!-- data-ng-repeat="list in " -->
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">type</th>
+      <th scope="col">Title</th>
+      <th scope="col">Contents</th>
+      <th scope="col">ID</th>
+      <th scope="col">Click</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody id ="trcheck" data-ng-repeat="rows in list">
+    <tr>
+      <th scope="row">{{rows.no}}</th>
+      <td style ="color:darkgrey">공지</td>
+      <td>{{rows.title}}</td>
+      <td>{{rows.contents}}</td>
+      <td>{{rows.id}}</td>
+      <td>{{rows.click}}</td>
+      <td>{{rows.reg_date}}</td>
+    </tr>
+  </tbody>
+        
+</table>
+        <hr>
+        <div class ="board_btn">
+        <button type ="button" data-ng-click="qwrite()">작성</button>
+        </div>
+</div>
+
+</div>
+</section>

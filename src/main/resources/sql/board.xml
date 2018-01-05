@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<select id="boardlist" resultType="hashmap">
+		select no,title,contents,id,click,DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date from list where del_yn="N" and auth=3;
+	</select>
+</mapper>
