@@ -1,0 +1,483 @@
+            * {
+                box-sizing: border-box;
+            }
+ul {
+    list-style: none;
+}
+   
+/*PC basic font-size*/
+li a{font-size:1.5em}
+.sec_in_box p a{font-size:1.6em}
+.headdiv7 p{font-size:40px}
+
+            * {
+                box-sizing: border-box;
+            }
+
+
+html,body {
+    margin: 0;
+    padding: 0;
+    min-width: 368px;
+    min-height: 500px;
+    height: auto;
+    width : 100vw;
+    
+}
+
+.mainsec_div ul{
+ list-style: none;
+    margin: 0;
+    padding:0;
+}
+
+
+/*header 구성요소 - 로그인 로그아웃 회원가입 > a태그  */
+header {
+    width : 100vw;
+    height: 10vh;
+}
+header a{ 
+    /*font-size : 1em; */
+    padding:0;
+    margin-right:0.5vw;
+    float : right;
+    text-decoration: none;
+    color:black;
+}
+.headdiv3{ 
+    height: 3vh;
+    background-color: #F5F3EE;
+}
+.headdiv3 a{
+    font-family: 'Nanum Pen Script', serif; /*font-size:1.3em;*/
+}
+.headdiv7{ 
+    height: 7vh;
+    background-color: snow;
+    padding: 1vh 0;
+}
+.headdiv7 p{
+    font-family: 'Nanum Pen Script', serif; /*font-size :2.5em;*/ text-align: center;
+}
+
+/*nav*/
+nav {
+    width:100vw;
+    height: 7vh;
+    padding : 1vh 0;
+    background-color: floralwhite;
+}
+
+
+section li span {
+    color:black;
+    font-family: 'Nanum Pen Script', serif;
+
+}
+.dropdown-menu li a {
+    font-family: 'Nanum Pen Script', serif;
+    /*font-size:1.2em;*/
+}
+/*section*/
+section {
+    width : 100vw;
+min-height:50vh;
+height: auto;
+
+}
+/*mainView*/
+.mainsec_div{
+    width: 100vw;
+    height: 75vh;
+}
+
+.section90{
+    width: 90vw;
+    height: 75vh;
+    float:left;
+}
+.secbox30{
+    width:88vw;
+    margin: 1vh 1vw;
+    height: 28vh;
+    background-color:white;
+}
+
+/* 88vw / 4 box / 18vw mar 2vw / 30vh mar 1vh 28vh*/ 
+.sec_in_box{
+    width: calc(72vw/4);
+    margin : 1vh 2vw;
+    height: 26vh;
+    float:left;
+    text-decoration: none;
+    color:black;
+    border-color:black;
+    border-style:double;
+    
+}
+.sec_in_box ul{ margin: 0px;}
+.sec_in_box li{
+    margin:0px;
+    list-style: none;
+}
+.sec_in_box a{
+    color:black;
+     /*font-size:1em;*/
+}
+.sec_in_box p{
+    /*font-size:1.05em;*/
+    margin: 0.1vh 0;
+    
+}
+
+.sec_in_box li a{
+    /*font-size: 1.4em;*/
+}
+.sec_in_box a{
+    font-family: 'Nanum Pen Script', serif;
+    /*font-size: 1.6em;*/
+}
+
+
+.secbox15 {
+    width: 84vw;
+    height: 13vh;
+    margin: 1vh 3vw;
+    border-color:black;
+    float:left;
+    border-style:double;
+}
+
+/* 내가 본 목록 */
+.section10{
+    width: 10vw;
+    height: 73vh;
+    margin: 1vh 0vw;
+    border-color:black;
+    border-style:double;
+    float:right;
+}
+/*하단 부분 */
+
+footer{
+    width:100vw;
+    height: 8vh;
+    padding: 1.5vh 0;
+    background-color:#F5F3EE;
+}
+.ft_box p{
+    margin: 0px;
+    padding: 0px;
+    color:grey;
+    text-align: center;
+    font-size:10px;
+}
+.ft_box{
+
+}
+
+/* 작가 / 일반 연재 */
+.story_box {
+    width:100vw;
+    margin:0px;
+    height: auto;
+    min-height: 70vh;
+}
+/*게시판 머리말.*/
+.story_box_head{
+    width: 100vw;
+    height: 6vh;
+    padding: 1vh 0;
+    text-align: center;
+    border-style: double;
+    border-color:black;
+    
+}
+.story_box_head p{
+    margin: 0;
+    padding: 0;
+    /*font-size:1.5em;*/
+   font-family: 'Nanum Pen Script', serif;
+}
+.mainsec_div ul li a {
+   font-family: 'Nanum Pen Script', serif;
+}
+
+
+/*6 * 3줄 마진 0.5vw/1vh */
+.story_big_box{
+    height: auto;
+}
+.story_inbox{
+    width: 16vw;
+    margin : 1vh calc(4vw/12);
+    height: 24vh;
+    padding: 1.5vh 0;
+    background-color:snow;
+    float:left;
+    border-style:double;
+    border-color:black;
+}
+.story_inbox p{
+    text-align: center;
+    font-family: 'Nanum Pen Script', serif;
+    /*font-size:1.2em;*/
+    margin : 0;
+}
+
+.story_inbox_img{
+    width: 12vw;
+    margin: 2vh 2vw; 
+    height: 10vh;
+    background-color:black;
+}
+.story_inbox_img img{
+    width: 100%;
+    height: 100%;
+}
+
+/*드롭다운 글씨체 */
+.genre li {
+font-family: 'Nanum Pen Script', serif;
+/*font-size:1.2em;*/
+}
+.genre span {
+font-family: 'Nanum Pen Script', serif;
+/*font-size:1.3em;*/
+}
+
+
+/* 커뮤니티 - 공지 / 연재 / 자유 게시판 / 문의 */
+.board_big_box{
+    width: 100vw;
+    height: auto;
+    min-height: 30vh;
+    font-family: 'Nanum Pen Script', serif;
+}
+.board_box{
+    width: 98vw;
+    height: auto;
+    min-height: 30vh;
+    margin: 1vh 1vw;
+    border:1px solid black;
+    
+}
+.board_head{
+    width:98vw;
+    height: 10vh;
+    margin: 1vh 1vw;
+    padding: 1vh 0;
+    border: 1px solid black;
+    text-align: center;
+}
+
+
+.board_box button{
+    float:right;
+    margin-right: 2vw;
+    margin-bottom: 2vh;
+    position: relative;
+    bottom:auto;
+    
+}
+
+
+.board_btn{
+    width: 98vw;
+    height: 10vh;
+    padding: 2vh 0;
+    border : 1px,solid,black;
+}
+
+/* 연재 디테일 */
+
+.addetail_big_box{
+    width: 100vw;
+    height: auto;
+    min-height: 60vh;
+    font-family: 'Nanum Pen Script', serif;
+}
+
+.adetail_head{
+    width:98vw;
+    height: 20vh;
+    margin: 1vh 1vw;
+    padding: 1vh 0;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.adetail_A{
+    width:14vw;
+    margin: 0 3vw;
+    height: 18vh;
+    float:left;
+    border:1px double black;
+}
+.ad_A_img{
+    width: 10vw;
+    margin: 0.5vh 2vw;
+    height: 17vh;
+    
+}
+.ad_A_img img{    
+    width: 100%;
+    height: 100%;
+}
+
+.adetail_B{
+    width:77vw;
+    height: 18vh;
+    float:right;
+}
+.ad_B_part1{
+    width:100%;
+    height: 6vh;
+}
+.ad_B_part1 h2,h5{
+    margin: 0;
+    padding: 0;
+        
+}
+.ad_B_part1 h5{
+    margin: 0;
+    padding: 0;
+        
+}
+
+.ad_B_part2{
+    width:100%;
+    height: 12vh;
+    text-align: left;
+}
+.ad_btn{
+    margin-right: 1vw;
+    float: right;
+}
+.board_box{
+    width: 98vw;
+    height: auto;
+    min-height: 20vh;
+    margin: 1vh 1vw;
+    border:1px solid black;
+    
+}
+
+/* 연재 작성 */
+
+
+
+/* 게시판 작성 */
+.Qwrite {
+    margin: 0.5vh 0;
+    width: 100vw;
+    min-height: 45vh;
+    height: auto;
+    border-style: double;
+    border-color:black;
+    
+}
+.writeA {
+width:10vw;
+height: 39vh;
+    float:left;
+}
+.writeA span{
+    margin-left:3vw;
+}
+.writeB {
+width:90vw;
+height: 39vh;
+}
+
+/* 작품 디테일 화면 */
+.textview_head{
+    width:98vw;
+    height: 6vh;
+    margin: 1vh 1vw;
+    padding: 1vh 0;
+    border: 1px solid black;
+    text-align: center;
+}
+.textview_head p{
+    font-size:1.5em;
+}
+
+.textview_box{
+    width: 98vw;
+    height: auto;
+    min-height: 40vh;
+    margin: 1vh 1vw;
+    border:1px double black;
+    background-color: #deeeec;
+    
+}
+.view_box{
+    width: 80vw;
+    margin: 4vh 10vw;
+    background-color: #deeeec;
+    min-height: 36vh;
+    height: auto;
+}
+.view_box p{
+    font-size:1.5em;
+}
+
+.textview_comments{
+    width:98vw;
+    min-height: 15vh;
+    height: auto;
+    margin: 1vh 1vw;
+    padding: 1vh 1vw;
+    border: 1px solid black;
+    text-align: left;
+}
+.textview_comments p{
+    font-size: 20px;
+    margin: 0;
+    padding:0;
+}
+.textview_comments span{
+    margin: 0;
+    padding:0;
+        
+}
+
+.textview_input{
+    width:98vw;
+    min-height: 5vh;
+    height: auto;
+    margin: 1vh 1vw;
+    border: 1px solid black;
+    text-align: left;
+
+}
+.textview_input p{
+    margin-left: 1vw;
+}
+.view_reply{
+    margin: 0;
+    padding: 0;
+}
+
+/*게시판 자세히 보기.*/
+.listdetail_box{
+    width: 92vw;
+    margin: 5vh 3vw;
+    background-color: azure;
+    padding: 1vh 1vw;
+    min-height: 36vh;
+    height: auto;
+    border: 1px solid black;
+}
+.listdetail_box p{
+    font-size: 1.5em;
+}
+.textview_box button {
+    float:right;
+    margin : 1vh 1vw 0 0;
+}
+/*작품관리 - 선호작, 연재작  */
+
+/*관리자 모드 - 회원, 작품 관리 */
