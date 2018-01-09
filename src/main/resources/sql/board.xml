@@ -3,7 +3,23 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
-	<select id="boardlist" resultType="hashmap">
-		select no,title,contents,id,click,DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date from list where del_yn="N" and auth=3;
+	<select id="boardlist" resultType="hashmap" parameterType="hashmap">
+		select no,title,contents,id,click,type,DATE_FORMAT(reg_date, '%Y-%m-%d') as
+		 reg_date from list where del_yn="N" and type=#{type} order by no desc;
 	</select>
+	<select id="serial" resultType="hashmap" parameterType="hashmap">
+		select no,title,introduce,id,click,pref,img,auth,DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date  from category where auth =#{auth};
+	</select>
+		<select id="adetail" resultType="hashmap" parameterType="string" >
+				select n.title,n.stitle,l.id,l.click as click,
+		n.click as nclick,l.pref,n.sort,l.introduce,
+		DATE_FORMAT(n.reg_date, '%Y-%m-%d') as ndata 
+		 from `category` as l inner join novel as n
+ 			on(l.title=n.title) where l.title = #{title} order by n.sort desc
+ 			
+	</select>
+	<select id="detailcontents" resultType="hashmap" parameterType="hashmap">
+		select * from list where no = #{no};
+	</select>
+	
 </mapper>

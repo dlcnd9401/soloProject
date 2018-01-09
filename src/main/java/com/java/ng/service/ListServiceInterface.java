@@ -4,4 +4,7 @@ import java.util.HashMap;
 
 public interface ListServiceInterface {
 	HashMap<String,Object>list(HashMap<String,Object>param);
+	HashMap<String,Object>serial(HashMap<String,Object>param);
+	HashMap<String,Object>adetail(HashMap<String,Object>param);
+	HashMap<String,Object>detaillist(HashMap<String,Object>param);
 }

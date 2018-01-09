@@ -42,7 +42,9 @@ app.run(function($rootScope,$http){
 	$rootScope.navEvnet = function(){
 	$rootScope.navDis = location.hash;
 };
-
+$rootScope.titlechk ={
+		title:""
+};
 $rootScope.user = {
 		no:"",
 		id:"",
@@ -52,7 +54,30 @@ $rootScope.user = {
 		del_yn: ""
 }
 
-	
+
+$rootScope.auth= [
+	{
+		auth : ""
+	}
+]
+$rootScope.type = [
+	{
+		type: ""
+	}
+]
+
+$rootScope.serial3 = function(param){
+	console.log("params : " + param)
+	$rootScope.auth.auth = param;
+	console.log($rootScope.auth.auth);
+}
+
+$rootScope.boardkinds= function(parambody){
+	console.log("parambody : "+ parambody);
+	$rootScope.type.type = parambody;
+	};
+
+
 
 });
 

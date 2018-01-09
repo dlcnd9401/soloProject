@@ -8,16 +8,16 @@
         <li>
             <a href="#">연재 ▼</a>
             <ul class="navhidden">
-       <li><a href="#!/story">작가 연재 게시판</a></li>
-       <li><a href="#!/story">일반 연재 게시판</a></li>
+       <li><a href="#!/story" data-ng-click="serial3(1)">작가 연재 게시판</a></li>
+       <li><a href="#!/story" data-ng-click="serial3(2)">일반 연재 게시판</a></li>
             </ul>
         </li>
         <li>
             <a href="#">커뮤니티 ▼</a>
             <ul class="navhidden">
-      <li><a href="#!/board">공지사항</a></li>
-     <li><a href="#!/board">연재 게시판</a></li>
-    <li><a href="#!/board">자유 게시판</a></li>
+      <li><a href="#!/board" data-ng-click="boardkinds('공지')">공지사항</a></li>
+     <li><a href="#!/board" data-ng-click="boardkinds('연재')">연재 게시판</a></li>
+    <li><a href="#!/board" data-ng-click="boardkinds('자유')">자유 게시판</a></li>
             </ul>
         </li>
         <li>
@@ -27,7 +27,7 @@
        <li><a href="#!/actcreate">새 연재 등록</a></li>
             </ul>
         </li>
-        <li><a href="#!/board">문의</a></li>
+        <li><a href="#!/board" data-ng-click="boardkinds('문의')">문의</a></li>
         <li>
             <a href="#">관리자 모드 ▼</a>
             <ul class="navhidden">

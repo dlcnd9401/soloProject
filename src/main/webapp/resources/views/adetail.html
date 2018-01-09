@@ -4,14 +4,16 @@
     <div class ="adetail_head">
         <div class ="adetail_A">
         <div class ="ad_A_img">
-            <img src="resources/img/clock.png">
+            <img src={{titlechk.title.img}}>
             </div>
         </div>
         <div class ="adetail_B">
-        <div class ="ad_B_part1"><h2>구디아카데미 썰 푼다.</h2><h5>Chomyang</h5></div>
+        <div class ="ad_B_part1"><h2>{{titlechk.title.title}}</h2><h5>{{titlechk.title.id}}</h5></div>
         <div class ="ad_B_part2">
-            <p> 작품 소개 : <span>구디아카데미를 다니면서 겪은 일을 사실적으로 묘사한 작품</span></p>            
-            조회수 : <span>78</span> 선호작 : <span>3</span> 총 편수 : <span>2</span>
+        
+        
+            <p> 작품 소개 : <span>{{titlechk.title.introduce}}</span></p>            
+            조회수 : <span>{{titlechk.title.click}}</span> 선호작 : <span>{{titlechk.title.pref}}</span>
             <div><button type="button" class ="ad_btn">선호작 등록</button></div>
             <div><button type="button" class ="ad_btn">글 작성</button></div>
             </div>
@@ -31,20 +33,13 @@
     </tr>
   </thead>
   <tbody id ="trcheck">
-    <tr>
-      <th scope="row"><a href ="#!/textview">바람잘 날 없다.</a></th>
-      <td style ="color:darkgrey">2</td>
-      <td>2017-12-27</td>
-      <td>45</td>
+    <tr data-ng-repeat="rows in actdetail">
+      <th scope="row"><a href ="#!/textview">{{rows.stitle}}</a></th>
+      <td style ="color:darkgrey">{{rows.sort}}</td>
+      <td>{{rows.ndata}}</td>
+      <td>{{rows.nclick}}</td>
       
     </tr>
-    <tr>
-      <th scope="row"><a href ="#!/textview">바람이 불리가 없지.</a></th>
-      <td style ="color:darkgrey">1</td>
-      <td>2017-12-27</td>
-      <td>45</td>
-    </tr>
-
   </tbody>
         
 </table>

@@ -1,7 +1,7 @@
 <section>
 <div class ="board_big_box">
     <div class ="board_head">
-    <p> 공지 사항 / 자유 게시판 / 연재 게시판 </p>
+    <p> {{type.type}} 게시판 </p>
     </div>
     <div class ="board_box">
     <table class="table">
@@ -17,24 +17,30 @@
       <th scope="col">Date</th>
     </tr>
   </thead>
-  <tbody id ="trcheck" data-ng-repeat="rows in list">
+  <tbody id ="trcheck" dir-paginate="rows in list | itemsPerPage:5">
     <tr>
       <th scope="row">{{rows.no}}</th>
-      <td style ="color:darkgrey">공지</td>
+      <td style ="color:darkgrey">{{rows.type}}</td>
       <td>{{rows.title}}</td>
-      <td>{{rows.contents}}</td>
+      <td><a href ="#!/boarddetail" data-ng-click="movedetail(rows.no)">{{rows.contents}}</a></td>
       <td>{{rows.id}}</td>
       <td>{{rows.click}}</td>
       <td>{{rows.reg_date}}</td>
     </tr>
   </tbody>
-        
 </table>
         <hr>
+          <dir-pagination-controls style="margin: 10vh 45%"
+       max-size="5"
+       direction-links="true"
+       boundary-links="true" >
+    </dir-pagination-controls>
         <div class ="board_btn">
         <button type ="button" data-ng-click="qwrite()">작성</button>
         </div>
 </div>
 
 </div>
+
+
 </section>

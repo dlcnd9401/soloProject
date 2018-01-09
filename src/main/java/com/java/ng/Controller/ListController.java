@@ -21,4 +21,21 @@ public class ListController {
 	public ModelAndView List(HttpServletRequest req){
 		return HttpUtil.returnJson(lsi.list(HttpUtil.paramMap(req)));
 	}
+	
+	
+	@RequestMapping(value="/Serial", method = RequestMethod.POST)
+	public ModelAndView serial1(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.serial(HttpUtil.paramMap(req)));
+	}
+	
+	@RequestMapping(value="/Adetail", method = RequestMethod.POST)
+	public ModelAndView addetail(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.adetail(HttpUtil.paramMap(req)));
+	}
+	
+	@RequestMapping(value="/DetailList", method = RequestMethod.POST)
+	public ModelAndView detaillist(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.detaillist(HttpUtil.paramMap(req)));
+	}
+	
 }

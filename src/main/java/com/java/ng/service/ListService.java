@@ -21,9 +21,38 @@ public class ListService implements ListServiceInterface {
 	@Override
 	public HashMap<String, Object> list(HashMap<String, Object> param) {
 		result = new HashMap<String, Object>();
+		System.out.println("List param :" + param);
 		bean = new DaoBean("SelectList", ns+".boardlist", param);
 		result.put("list", di.dao(bean));
 		System.out.println(result);
+		return result;
+	}
+
+	@Override
+	public HashMap<String, Object> serial(HashMap<String, Object> param) {
+		result = new HashMap<String, Object>();
+		System.out.println("service param :" + param);
+		bean = new DaoBean("SelectList", ns+".serial", param);
+		result.put("list", di.dao(bean));
+		System.out.println(result);
+		return result;
+	}
+
+	
+	@Override
+	public HashMap<String, Object> adetail(HashMap<String, Object> param) {
+		result = new HashMap<String, Object>();
+		System.out.println("service param :" + param);
+		bean = new DaoBean("SelectList", ns+".adetail", param);
+		result.put("list", di.dao(bean));
+		System.out.println(result);
+		return result;
+	}
+	
+	@Override
+	public HashMap<String, Object> detaillist(HashMap<String, Object> param) {
+		bean = new DaoBean("SelectOne", ns+".detailcontents", param);
+		result = (HashMap<String, Object>) di.dao(bean);
 		return result;
 	}
 }

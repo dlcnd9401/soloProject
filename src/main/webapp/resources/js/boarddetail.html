@@ -1,16 +1,17 @@
 <section>
 
-    <div class ="board_big_box">
+    <div class ="board_big_box" data-ng-repeat="rows in detailview">
         <div class ="textview_input" style="text-align: center; background-color:azure">
-           <p style ="margin: 1vh 0vw; font-size:1.5em;">title : <span>제목을 찾고 있어요!</span></p>
+           <p style ="margin: 1vh 0vw; font-size:1.5em;">title : <span>{{rows.title}}</span></p>
         </div>
         
         <div class ="textview_box" style="background-color:azure;">
             <button type = "button">수정</button>   
         <button type = "button">삭제</button>
             <p style ="font-size:2em; margin-left:3vw">Contents</p>
+            {{rows.id}}
             <div class ="listdetail_box">
-            <p>내용을 찾고 있어요 ! 존나 눈아프고 졸린데 그만하고 싶다 진짜루;</p>
+            <p>{{rows.contents}}</p>
             </div>
 
         </div>

@@ -22,7 +22,6 @@ public class userservice implements userserviceinterface {
 	public HashMap<String, Object> login(HashMap<String, Object> param) {
 		bean = new DaoBean("SelectOne", ns+".login", param);
 		result = (HashMap<String, Object>) di.dao(bean);
-		
 		return result;
 	}
 	
