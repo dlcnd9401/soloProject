@@ -1,29 +1,21 @@
 var app = angular.module("Board",['angularUtils.directives.dirPagination']);
 app.controller("board", function($rootScope, $scope,$http){
 	$rootScope.navEvnet();
-		$rootScope.list_data= {
-				no:"",
-				title:"",
-				contents:"",
-				click:"",
-				id:"",
-				reg_date:""
-		};
+		$rootScope.list_auth = ""
 		
 		$rootScope.detailparam = [{
 			no:""
 	}]
 		
 		$rootScope.list=[];
-	  $rootScope.qwrite= function(){
+	  /*$rootScope.qwrite= function(){
 		   	 console.log("로그인 확인 : ", $rootScope.user);
+		   	 
 		   	 location.href ="#!/qwrite";
-	  };
+	  };*/
 	  
 	  $rootScope.boardkinds= function(parambody){
-			console.log("parambody : "+ parambody);
 			$rootScope.type.type = parambody;
-			console.log($rootScope.type);
 			$rootScope.boardList();
 			};
 	  
@@ -33,6 +25,9 @@ app.controller("board", function($rootScope, $scope,$http){
 				.then(function(result){
 					$rootScope.list = result.data.list;
 					console.log($rootScope.list);
+					$rootScope.list_auth = $rootScope.list[0].auth;
+					$rootScope.list_type = $rootScope.list[0].type;
+					console.log($rootScope.list_auth);
 				},function(result){
 					console.log(result);
 				});	
@@ -44,7 +39,11 @@ app.controller("board", function($rootScope, $scope,$http){
 		$rootScope.movedetail = function(detailno){
 			console.log(detailno);
 			$rootScope.detailparam.no = detailno;
-
-			
 		}
+		
+		$rootScope.qwrite = function(listauth){
+		   	 location.href ="#!/qwrite";
+			console.log(listauth);
+		}
+		
 });

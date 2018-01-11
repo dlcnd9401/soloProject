@@ -9,7 +9,7 @@ app.config(function($routeProvider){
 		templateUrl : "resources/views/board.html",
 		controller : "board"
 	}).when("/boarddetail", {
-		templateUrl : "resources/views/boarddetail.html",
+		templateUrl : "resources/views/detailtoy.html",
 		controller : "boarddetail"
 	}).when("/actcreate", {
 		templateUrl : "resources/views/actcreate.html",
@@ -54,6 +54,10 @@ $rootScope.user = {
 		del_yn: ""
 }
 
+$rootScope.webveiw = {
+		title:"",
+		sort:""
+	}
 
 $rootScope.auth= [
 	{
@@ -67,17 +71,38 @@ $rootScope.type = [
 ]
 
 $rootScope.serial3 = function(param){
-	console.log("params : " + param)
 	$rootScope.auth.auth = param;
-	console.log($rootScope.auth.auth);
 }
 
 $rootScope.boardkinds= function(parambody){
-	console.log("parambody : "+ parambody);
 	$rootScope.type.type = parambody;
 	};
 
 
-
 });
+
+
+/*FileSErvice*/
+app.factory("FileService", function($q,$http){
+	var deffered = $q.defer();
+	var result = [];
+	var fileService = {};
+	
+	   fileService.async = function(url, formData, param){
+		      $http.post(url, formData, {
+		         headers : {"Content-Type": undefined},
+		         params : param
+		      }).then(data => {
+		         result = data;
+		         deffered.resolve();
+		      }, data => {
+		         result = data;
+		         deffered.resolve();
+		      });
+		      return deffered.promise;
+		      
+		   }
+		   fileService.data = function(){ return result; }
+		   return fileService;
+		});
 

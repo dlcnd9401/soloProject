@@ -4,12 +4,12 @@ app.controller("adetail", function($rootScope, $scope,$http){
 	
 	$rootScope.actdetail = [];
 	
+
+	
 	$rootScope.adetail = function(){
-		console.log("STring" + $rootScope.titlechk.title);
 			  $http.post("Adetail","",{params:$rootScope.titlechk.title})
 			.then(function(result){
-				console.log("actdectail start");
-				console.log(result);
+				console.log("성공");
 				$rootScope.actdetail = result.data.list;
 				console.log($rootScope.actdetail);
 			},function(result){
@@ -18,5 +18,18 @@ app.controller("adetail", function($rootScope, $scope,$http){
 		}
 	$rootScope.adetail();
 	
-	
+	$rootScope.viewdetailparam = function(viewdetailno){
+		console.log(viewdetailno);
+		$rootScope.webview = 
+			{title:viewdetailno.title,
+			 sort:viewdetailno.sort
+			}
+		
+		
+		
+		console.log("param 확인 ");
+		console.log($rootScope.webview);
+		console.log($rootScope.webview.title);
+		console.log($rootScope.webview.sort);
+	};
 });

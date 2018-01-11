@@ -1,8 +1,15 @@
 var app = angular.module("Boarddetail",[]);
 app.controller("boarddetail", function($rootScope, $scope,$http){
-	$rootScope.navEvnet();
 	
-	$rootScope.detailview= [];
+	$rootScope.detailview= [
+		{
+			contents:"",
+				id:"",
+				title:""
+			
+			
+		}
+	];
 	console.log($rootScope.detailparam.no);
 	
 	$rootScope.modeldetailcontents= function(){

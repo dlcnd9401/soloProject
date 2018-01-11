@@ -2,6 +2,7 @@
 var app = angular.module("SignUp",[]);
 app.controller("signup", function($rootScope, $scope,$http){
 	$rootScope.navEvnet();
+		
 	
 
 

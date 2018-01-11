@@ -7,4 +7,9 @@ public interface ListServiceInterface {
 	HashMap<String,Object>serial(HashMap<String,Object>param);
 	HashMap<String,Object>adetail(HashMap<String,Object>param);
 	HashMap<String,Object>detaillist(HashMap<String,Object>param);
+	HashMap<String,Object>sortSearch(HashMap<String,Object>param);
+	HashMap<String,Object>authwrite(HashMap<String, Object>param);
+	HashMap<String,Object>actcreate(HashMap<String, Object>param);
+	
 }
+

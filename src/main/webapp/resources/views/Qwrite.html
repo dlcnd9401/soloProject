@@ -5,7 +5,7 @@
 </div>
 <div class ="Qwrite">
     <div>
-        <form>
+        <form name="writeForm" data-ng-submit="writeType()" >
         <br>
         <div class ="writeA">
         <span>ID : </span> <br><br>  
@@ -13,9 +13,10 @@
         <span style="">내용 : </span>
         </div>
         <div class ="writeB">
-        <input type="text" name="id"><br><br>
-        <input type="text" name="title"><br><br>
-        <textarea style="width: 80vw;height: 20vh"></textarea>
+        
+        <input type="text" name="id" data-ng-model="Tywrite.id"><br><br>
+        <input type="text" name="title" data-ng-model="Tywrite.title"><br><br>
+        <textarea style="width: 80vw;height: 20vh"name ="contents" data-ng-model="Tywrite.contents"></textarea>
             </div>
     <button type="submit" style="float:right; margin-right: 3vw;">작성</button>
     </form>

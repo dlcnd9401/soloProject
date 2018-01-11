@@ -21,6 +21,8 @@
     <tr>
       <th scope="row">{{rows.no}}</th>
       <td style ="color:darkgrey">{{rows.type}}</td>
+      
+      
       <td>{{rows.title}}</td>
       <td><a href ="#!/boarddetail" data-ng-click="movedetail(rows.no)">{{rows.contents}}</a></td>
       <td>{{rows.id}}</td>
@@ -36,7 +38,7 @@
        boundary-links="true" >
     </dir-pagination-controls>
         <div class ="board_btn">
-        <button type ="button" data-ng-click="qwrite()">작성</button>
+        <button type ="button" data-ng-click="qwrite(list_auth)">{{list_type}} 작성</button>
         </div>
 </div>
 

@@ -5,21 +5,28 @@
 <mapper namespace="board">
 	<select id="boardlist" resultType="hashmap" parameterType="hashmap">
 		select no,title,contents,id,click,type,DATE_FORMAT(reg_date, '%Y-%m-%d') as
-		 reg_date from list where del_yn="N" and type=#{type} order by no desc;
+		 reg_date,auth from list where del_yn="N" and type=#{type} order by no desc;
 	</select>
 	<select id="serial" resultType="hashmap" parameterType="hashmap">
 		select no,title,introduce,id,click,pref,img,auth,DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date  from category where auth =#{auth};
 	</select>
 		<select id="adetail" resultType="hashmap" parameterType="string" >
 				select n.title,n.stitle,l.id,l.click as click,
-		n.click as nclick,l.pref,n.sort,l.introduce,
+		n.click as nclick,l.pref,n.sort,l.introduce,n.no,
 		DATE_FORMAT(n.reg_date, '%Y-%m-%d') as ndata 
 		 from `category` as l inner join novel as n
  			on(l.title=n.title) where l.title = #{title} order by n.sort desc
- 			
 	</select>
 	<select id="detailcontents" resultType="hashmap" parameterType="hashmap">
 		select * from list where no = #{no};
 	</select>
-	
+	<select id ="sortsearch" resultType="hashmap" parameterType="hashmap">
+		select * from novel where title = #{title} and sort=#{sort};
+	</select>
+	<insert id="listwrite" parameterType="hashmap">
+		insert into list (id,title,contents,type,auth) values (#{id},#{title},#{contents},#{type},#{auth});
+	</insert>
+	<insert id="catewrite" parameterType="hashmap">
+	insert into category (id,title,type,auth,introduce) values (#{id},#{title},#{type},#{auth},#{introduce});
+	</insert>
 </mapper>

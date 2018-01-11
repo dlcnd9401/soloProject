@@ -1,34 +1,30 @@
 <section>
-<div class="container">
-	<form>
+<div class="container" >
+	<form data-ng-submit="cateinsert()">
 	  <div class="form-group">
-	    <label for="act_name">작품명</label>
-	    <input type="text" class="form-control" name="act_name" placeholder="작품명을 입력하세요">
+	    <label for="title">작품명</label>
+	    <input type="text" class="form-control" data-ng-model="catelist.title" name="title" placeholder="작품명을 입력하세요">
 	  </div>
      <div class="form-group">
-	    <label for="act_Kinds">작품 종류</label>
-	    <input type="text" class="form-control" name="act_Kinds" placeholder="작품종류를 입력하세요">
+	    <label for="type">작품 종류</label>
+	    <input type="text" class="form-control" name="type" data-ng-model="catelist.type" placeholder="작품종류를 입력하세요">
 	  </div>
       <div class="form-group">
-	    <label for="act_introduce">작품 소개</label>
-	    <input type="text" class="form-control" name="act_introduce" style ="height: 15vh;" placeholder="작품의 간단한 소개를 입력해주세요.">
-	  </div>
-    <div class="form-group">
-        <input type="checkbox" checked="">
-	    <label for="text">19세 이용가일 시 체크</label>
+	    <label for="introduce">작품 소개</label>
+	    <input type="text" class="form-control" name="introduce" data-ng-model="catelist.introduce" style ="height: 15vh;" placeholder="작품의 간단한 소개를 입력해주세요.">
 	  </div>
      <div class="form-group">
-	    <label for="act_img">표지 이미지 등록</label>
-         <form name ="fileForm" data-ng-submit="submit()">
-			<input type ="file"   name ="file" data-file="file" multiple="multiple">
-            <input type ="submit" class="btn btn-success" value ="업로드" style="float:right">
-        </form>
+	    <label for="img">표지 이미지 등록</label>
+	</div>
 	    
-	  </div>    
-        
 	  <button type="submit" class="btn btn-success">작품 등록</button>
-		
-    </form>
+	  </form>
+    
+  		<form name ="fileForm" data-ng-submit="submit()"> 
+			<input type ="file"   name ="file" data-file="file" multiple="multiple">
+            <input type ="button" value ="업로드">
+        </form> 
+    
     
 </div>
 </section>

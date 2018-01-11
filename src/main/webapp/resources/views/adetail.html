@@ -25,8 +25,8 @@
     <table class="table">
   <thead>
     <tr>
-      <th scope="col">소제목</th>
       <th scope="col">회차</th>
+      <th scope="col">소제목</th>
       <th scope="col">날짜</th>
       <th scope="col">조회수</th>
 
@@ -34,8 +34,8 @@
   </thead>
   <tbody id ="trcheck">
     <tr data-ng-repeat="rows in actdetail">
-      <th scope="row"><a href ="#!/textview">{{rows.stitle}}</a></th>
       <td style ="color:darkgrey">{{rows.sort}}</td>
+      <th scope="row"><a href ="#!/textview" data-ng-click="viewdetailparam(rows)">{{rows.stitle}}</a></th>
       <td>{{rows.ndata}}</td>
       <td>{{rows.nclick}}</td>
       

@@ -38,4 +38,21 @@ public class ListController {
 		return HttpUtil.returnJson(lsi.detaillist(HttpUtil.paramMap(req)));
 	}
 	
+	@RequestMapping(value="/SortSearch", method = RequestMethod.POST)
+	public ModelAndView sortSearch(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.sortSearch(HttpUtil.paramMap(req)));
+	}
+	
+	@RequestMapping(value="/Authwrite", method = RequestMethod.POST)
+	public ModelAndView authwrite(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.authwrite(HttpUtil.paramMap(req)));
+	}
+	
+	@RequestMapping(value="/ActCreate", method = RequestMethod.POST)
+	public ModelAndView actcreate(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.actcreate(HttpUtil.paramMap(req)));
+	}
+	
+	
+	
 }

@@ -1,45 +1,42 @@
 <section>
-
-    <div class ="board_big_box" data-ng-repeat="rows in detailview">
+    <div class ="board_big_box">
         <div class ="textview_input" style="text-align: center; background-color:azure">
-           <p style ="margin: 1vh 0vw; font-size:1.5em;">title : <span>{{rows.title}}</span></p>
+           <p style ="margin: 1vh 0vw; font-size:1.5em;">title : <span>{{detailview.title}}</span></p>
         </div>
         
         <div class ="textview_box" style="background-color:azure;">
             <button type = "button">수정</button>   
         <button type = "button">삭제</button>
             <p style ="font-size:2em; margin-left:3vw">Contents</p>
-            {{rows.id}}
             <div class ="listdetail_box">
-            <p>{{rows.contents}}</p>
+            <p>{{detailview.contents}} {{detailview.id}}</p>
             </div>
 
         </div>
-  
 </div>
-            <div class ="textview_head" style="height: 5vh;">
-            <p style ="float:left; margin-left:2vw">Comments</p>
+	<div class="textview_head" style="height: 5vh;">
+            <p style="float:left; margin-left:2vw">Comments</p>
         </div>
-                    <div class ="textview_comments">
-                <div class ="view_reply"> 
+        <div class="textview_comments">
+                <div class="view_reply"> 
                 <p>ID : <span>admin</span></p>
                 <p>comments : <span>잘 보고 갑니다~</span> </p>
                 </div>
-                <div class ="view_reply"> 
+                <div class="view_reply"> 
                 <p>ID : <span>admin</span></p>
                 <p>comments : <span>잘 보고 갑니다~</span> </p>
                 </div>
-                <div class ="view_reply"> 
+                <div class="view_reply"> 
                 <p>ID : <span>admin</span></p>
                 <p>comments : <span>잘 보고 갑니다~</span> </p>
                 </div>
-                <div class ="view_reply"> 
+                <div class="view_reply"> 
                 <p>ID : <span>admin</span></p>
                 <p>comments : <span>잘 보고 갑니다~</span></p>
                 </div>
             </div>
-        <div class ="textview_input">
-        <p >Comments : <input type="text" value ="댓글을 입력하세요." style="margin-top:1vh; width:85vw;"><button type="button" style="width:5.5vw;margin-left:1.5vw;"> 작성 </button> </p>
+            <div class="textview_input">
+        <p>Comments : <input type="text" value="댓글을 입력하세요." style="margin-top:1vh; width:85vw;"><button type="button" style="width:5.5vw;margin-left:1.5vw;"> 작성 </button> </p>
         
-</div>
+        </div>
 </section>
