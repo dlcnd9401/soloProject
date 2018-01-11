@@ -1,0 +1,115 @@
+-- --------------------------------------------------------
+-- 호스트:                          localhost
+-- 서버 버전:                        10.1.20-MariaDB - mariadb.org binary distribution
+-- 서버 OS:                        Win64
+-- HeidiSQL 버전:                  9.4.0.5125
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+-- test 데이터베이스 구조 내보내기
+CREATE DATABASE IF NOT EXISTS `test` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `test`;
+
+-- 테이블 test.category 구조 내보내기
+CREATE TABLE IF NOT EXISTS `category` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `introduce` varchar(100) NOT NULL,
+  `del_yn` varchar(1) NOT NULL DEFAULT 'N',
+  `id` varchar(10) DEFAULT NULL,
+  `click` int(8) DEFAULT NULL,
+  `pref` int(8) DEFAULT NULL,
+  `type` int(8) DEFAULT NULL,
+  `img` varchar(500) DEFAULT NULL,
+  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `auth` int(1) NOT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='pref - 선호작 \r\nclick - 조회수 \r\ntype - 1 판타지 2 무협 3 ... \r\nauth - 1 작가 2 일반';
+
+-- 테이블 데이터 test.category:~2 rows (대략적) 내보내기
+DELETE FROM `category`;
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` (`no`, `title`, `introduce`, `del_yn`, `id`, `click`, `pref`, `type`, `img`, `reg_date`, `auth`) VALUES
+	(6, '작가 - 구르미 품은 달', '구르미', 'N', 'dlcnd9401', 15000, 600, 1, NULL, '2018-01-05 10:38:16', 1),
+	(7, '일반 - 구름 내놔', '일반 작품', 'N', 'dlcnd9401', 200, 3, 1, NULL, '2018-01-05 14:19:37', 2);
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+
+-- 테이블 test.list 구조 내보내기
+CREATE TABLE IF NOT EXISTS `list` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(10) NOT NULL,
+  `contents` varchar(5000) NOT NULL,
+  `del_yn` varchar(1) NOT NULL DEFAULT 'N',
+  `id` varchar(10) DEFAULT NULL,
+  `auth` int(1) DEFAULT NULL,
+  `click` int(8) DEFAULT NULL,
+  `type` int(8) DEFAULT NULL,
+  `reg_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='auth 1.작가 연재 게시판 2.일반 자유 게시판 3. 공지사항 ';
+
+-- 테이블 데이터 test.list:~6 rows (대략적) 내보내기
+DELETE FROM `list`;
+/*!40000 ALTER TABLE `list` DISABLE KEYS */;
+INSERT INTO `list` (`no`, `title`, `contents`, `del_yn`, `id`, `auth`, `click`, `type`, `reg_date`) VALUES
+	(1, '공지사항', '1234', 'N', 'dlcnd9401', 3, 10, 3, '2018-01-05 00:00:00'),
+	(2, '공지사항2', '1234', 'N', 'dlcnd9401', 3, 10, 3, '2018-01-05 17:05:47'),
+	(3, '공지사항3', '1234', 'N', 'dlcnd9401', 3, 10, 3, '2018-01-05 17:05:32'),
+	(4, '작가 연재 게시판', '1234', 'N', 'dlcnd9401', 1, 11, 3, '2018-01-05 17:05:44'),
+	(6, '공지사항3', '1234', 'Y', 'dlcnd9401', 3, 10, 3, '2018-01-05 00:00:00'),
+	(7, '일반 자유 게시판', '1234', 'N', 'dlcnd9401', 2, 9, 3, '2018-01-05 17:05:26');
+/*!40000 ALTER TABLE `list` ENABLE KEYS */;
+
+-- 테이블 test.novel 구조 내보내기
+CREATE TABLE IF NOT EXISTS `novel` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `stitle` varchar(50) NOT NULL,
+  `contents` varchar(20000) NOT NULL,
+  `del_yn` varchar(1) NOT NULL DEFAULT 'N',
+  `id` varchar(10) DEFAULT NULL,
+  `auth` int(1) DEFAULT NULL,
+  `click` int(8) DEFAULT NULL,
+  `type` int(8) DEFAULT NULL,
+  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='auth 1 - 작가 연재 \r\nauth 2 - 일반 연재\r\n1 - F 2 - 무 3-rf 4- 현f 5 - nov';
+
+-- 테이블 데이터 test.novel:~1 rows (대략적) 내보내기
+DELETE FROM `novel`;
+/*!40000 ALTER TABLE `novel` DISABLE KEYS */;
+INSERT INTO `novel` (`no`, `title`, `stitle`, `contents`, `del_yn`, `id`, `auth`, `click`, `type`, `reg_date`) VALUES
+	(7, '작가 - 구르미 품은 달', '1장 - apps', '1234', 'N', 'dlcnd9401', 1, 1234, 2, '2018-01-05 15:08:06'),
+	(8, '일반 - 구름 내놔', '1장- aapsd', '123455', 'N', NULL, 2, 1234, 1, '2018-01-05 15:09:29');
+/*!40000 ALTER TABLE `novel` ENABLE KEYS */;
+
+-- 테이블 test.user 구조 내보내기
+CREATE TABLE IF NOT EXISTS `user` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(10) NOT NULL,
+  `pw` varchar(10) NOT NULL,
+  `tel` varchar(50) NOT NULL DEFAULT '0',
+  `Actcheck` int(1) NOT NULL DEFAULT '0',
+  `name` varchar(20) NOT NULL,
+  `auth` int(11) NOT NULL DEFAULT '0',
+  `del_yn` varchar(1) NOT NULL DEFAULT 'N',
+  `adult` varchar(1) NOT NULL DEFAULT 'N',
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Actcheck - 작가/일반 식별자  \r\ndel_yn - 회원 블럭 유무 \r\n';
+
+-- 테이블 데이터 test.user:~1 rows (대략적) 내보내기
+DELETE FROM `user`;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` (`no`, `id`, `pw`, `tel`, `Actcheck`, `name`, `auth`, `del_yn`, `adult`) VALUES
+	(1, '1234', '1234', '111111111', 0, '1234', 0, 'N', 'N');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

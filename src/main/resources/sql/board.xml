@@ -27,6 +27,6 @@
 		insert into list (id,title,contents,type,auth) values (#{id},#{title},#{contents},#{type},#{auth});
 	</insert>
 	<insert id="catewrite" parameterType="hashmap">
-	insert into category (id,title,type,auth,introduce) values (#{id},#{title},#{type},#{auth},#{introduce});
+	insert into category (id,title,type,auth,introduce,img) values (#{id},#{title},#{type},#{auth},#{introduce},#{img});
 	</insert>
 </mapper>

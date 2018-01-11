@@ -7,13 +7,9 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.java.ng.util.HttpUtil;
 
 @Service
 public class FileService implements FileServiceInterface {
@@ -26,17 +22,14 @@ public class FileService implements FileServiceInterface {
 	public HashMap<String, Object> fileOutput(MultipartFile[] file, HttpServletRequest req) {
 		fileList = new ArrayList<HashMap<String, Object>>();
 		
-		HashMap<String, Object> param = HttpUtil.paramMap(req);
-		System.out.println(param);
-		
 		// 파일 수 만큼 반복문 실행
 		for(int i = 0; i < file.length; i++){
 			String name = file[i].getOriginalFilename();
 			String path = "";
 			String path2 = "resources/upload/";
 			System.out.println(path2 + name);
-			
-			path = "D:/GDJ7/angularjs/1214/src/main/webapp/" + path2;
+
+			path = "D:/GIT/soloProject/src/main/webapp/" + path2;
 //			path = req.getSession().getServletContext().getRealPath("/") + path2;
 			System.out.println(path);
 			

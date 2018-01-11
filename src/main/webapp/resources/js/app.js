@@ -77,7 +77,22 @@ $rootScope.serial3 = function(param){
 $rootScope.boardkinds= function(parambody){
 	$rootScope.type.type = parambody;
 	};
+	
+	$rootScope.fileUpload = (url, formData, param) =>{
+		var result = {}
 
+		$http.post(url, formData, { //url, param 데이터
+			headers : {"Content-Type": undefined},
+			params : param
+		}).then(data => {
+			result = data;
+		}, data => {
+			result = data;
+		});
+
+		return result;
+
+	};
 
 });
 
@@ -105,4 +120,3 @@ app.factory("FileService", function($q,$http){
 		   fileService.data = function(){ return result; }
 		   return fileService;
 		});
-

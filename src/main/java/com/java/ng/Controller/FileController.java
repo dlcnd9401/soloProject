@@ -16,8 +16,6 @@ import com.java.ng.util.HttpUtil;
 @Controller
 public class FileController {
 	
-	
-			
 		@Autowired
 		FileServiceInterface fsi;
 		
