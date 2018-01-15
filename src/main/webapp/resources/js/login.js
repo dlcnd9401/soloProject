@@ -14,6 +14,7 @@ app.controller("login", function($rootScope, $scope,$http){
 		   }else{
 			   $rootScope.user = result.data;
 			   location.href="#!/home";
+			   $rootScope.loginCheck();
 		   }
  	   },function(result){
  		   console.log(result);

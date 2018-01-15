@@ -15,14 +15,14 @@
   
         <p> Author / Amateur Story</p></div>
     <div class ="story_inbox" data-ng-repeat="rows in boardstory">
-    <a href ="#!/adetail" data-ng-click="titleclick(rows)">
+    <a data-ng-click="titleclick(rows.no)">
     <p>{{rows.title}}</p>
     <div class="story_inbox_img">
         <img src ={{rows.img}}>
         </div>
     <p>작가 : {{rows.id}}</p>
     <p>조회수 : {{rows.click}} 선호작 : {{rows.pref}}</p>
-    <p>소개 : {{rows.introduce}} 장르 : {{rows.type}}</p>
+    <p>장르 : {{rows.type}}</p>
     </a>
     </div>
 </div>

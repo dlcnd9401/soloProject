@@ -31,6 +31,7 @@
 	<script type="text/javascript" src="resources/js/story.js"></script>	 
 	<script type="text/javascript" src="resources/js/adetail.js"></script>
 	<script type="text/javascript" src="resources/js/qwrite.js"></script>
+	<script type="text/javascript" src="resources/js/pref.js"></script>
 	
 	<link rel="stylesheet" href="resources/css/home.css">
 	<link rel="stylesheet" href="resources/css/media.css">

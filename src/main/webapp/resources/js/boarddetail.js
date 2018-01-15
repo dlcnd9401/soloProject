@@ -1,24 +1,23 @@
 var app = angular.module("Boarddetail",[]);
-app.controller("boarddetail", function($rootScope, $scope,$http){
+app.controller("boarddetail", function($rootScope, $scope,$http,$routeParams){
+	$rootScope.detailNo = {
+		no:$routeParams.detailparam
+}
 	
-	$rootScope.detailview= [
+	$rootScope.detailview= 
 		{
 			contents:"",
 				id:"",
 				title:""
 			
 			
-		}
-	];
-	console.log($rootScope.detailparam.no);
+		};
 	
 	$rootScope.modeldetailcontents= function(){
-			$http.post("DetailList","",{params:$rootScope.detailparam})
+			$http.post("DetailList","",{params:{no:$rootScope.detailNo.no}})
 			.then(function(result){
 				console.log("성공");
-				console.log(result.data);
 				$rootScope.detailview=result.data;
-				console.log($rootScope.detailview);
 			},function(result){
 				console.log("실패");
 			});

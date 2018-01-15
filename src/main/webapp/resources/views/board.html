@@ -17,14 +17,14 @@
       <th scope="col">Date</th>
     </tr>
   </thead>
-  <tbody id ="trcheck" dir-paginate="rows in list | itemsPerPage:5">
+  <tbody id ="trcheck" dir-paginate="rows in list | itemsPerPage:10">
     <tr>
       <th scope="row">{{rows.no}}</th>
       <td style ="color:darkgrey">{{rows.type}}</td>
       
       
       <td>{{rows.title}}</td>
-      <td><a href ="#!/boarddetail" data-ng-click="movedetail(rows.no)">{{rows.contents}}</a></td>
+      <td><a href ="#!/boarddetail">{{rows.contents}}</a></td>
       <td>{{rows.id}}</td>
       <td>{{rows.click}}</td>
       <td>{{rows.reg_date}}</td>
@@ -33,7 +33,7 @@
 </table>
         <hr>
           <dir-pagination-controls style="margin: 10vh 45%"
-       max-size="5"
+       max-size="10"
        direction-links="true"
        boundary-links="true" >
     </dir-pagination-controls>

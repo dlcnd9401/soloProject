@@ -38,6 +38,11 @@ public class ListController {
 		return HttpUtil.returnJson(lsi.detaillist(HttpUtil.paramMap(req)));
 	}
 	
+	@RequestMapping(value="/Adetailparams", method = RequestMethod.POST)
+	public ModelAndView adetailparams(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.adetailparams(HttpUtil.paramMap(req)));
+	}
+	
 	@RequestMapping(value="/SortSearch", method = RequestMethod.POST)
 	public ModelAndView sortSearch(HttpServletRequest req){
 		return HttpUtil.returnJson(lsi.sortSearch(HttpUtil.paramMap(req)));
@@ -53,6 +58,16 @@ public class ListController {
 		return HttpUtil.returnJson(lsi.actcreate(HttpUtil.paramMap(req)));
 	}
 	
+	
+	@RequestMapping(value="/Pref_List", method = RequestMethod.POST)
+	public ModelAndView pref_list(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.pref_list(HttpUtil.paramMap(req)));
+	}
+	
+	@RequestMapping(value="/Reply_insert", method = RequestMethod.POST)
+	public ModelAndView reply_insert(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.reply_insert(HttpUtil.paramMap(req)));
+	}
 	
 	
 }

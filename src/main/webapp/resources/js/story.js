@@ -1,28 +1,12 @@
 var app = angular.module("Story",[]);
-app.controller("story", function($rootScope, $scope,$http){
-	$rootScope.boardstory = [];
-	$rootScope.titlechk = [{
-			title:"",
-			id:"",
-			click:"",
-			pref:"",
-			introduce:"",
-			img:"",
-			reg_data:""	
-	}]
-	
-/*	$rootScope.serial3 = function(param){
-		console.log("params : " + param)
-		$rootScope.auth.auth = param;
-		console.log($rootScope.auth.auth);
-		
-	}*/
-	
-	$rootScope.serial3 = function(param){
-		$rootScope.auth.auth = param;
-		$rootScope.story();
+app.controller("story", function($rootScope, $scope,$http,$routeParams){
+	$rootScope.auth = {
+			auth : $routeParams.storyauth
 	}
-
+	
+	$rootScope.boardstory = [];
+	
+	
 	$rootScope.story = function(){
 		 $http.post("Serial","",{params:$rootScope.auth})
 			.then(function(result){
@@ -35,8 +19,11 @@ app.controller("story", function($rootScope, $scope,$http){
 	$rootScope.story();
 
 	
-	$rootScope.titleclick = function(param){
-		$rootScope.titlechk.title=param;
+	$scope.titleclick = function(param){
+		console.log(param);
+		location.href="#!/adetail/" + param;
+		/*$rootScope.titlechk=param;
+		console.log($rootScope.titlechk);*/
 	}
 		
 });

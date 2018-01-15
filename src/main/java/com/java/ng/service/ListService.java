@@ -44,6 +44,13 @@ public class ListService implements ListServiceInterface {
 	}
 	
 	@Override
+	public HashMap<String, Object> adetailparams(HashMap<String, Object> param) {
+		bean = new DaoBean("SelectOne", ns+".detailbasic", param);
+		result = (HashMap<String, Object>) di.dao(bean);
+		return result;
+	}
+	
+	@Override
 	public HashMap<String, Object> detaillist(HashMap<String, Object> param) {
 		bean = new DaoBean("SelectOne", ns+".detailcontents", param);
 		result = (HashMap<String, Object>) di.dao(bean);
@@ -54,7 +61,10 @@ public class ListService implements ListServiceInterface {
 	public HashMap<String, Object> sortSearch(HashMap<String, Object> param) {
 		System.out.println("sortsearch :" + param);
 		bean = new DaoBean("SelectOne", ns+".sortsearch", param);
-		result = (HashMap<String, Object>) di.dao(bean);
+		result.put("sort", di.dao(bean));
+		bean = new DaoBean("SelectList", ns+".replylist", param);
+		result.put("reply", di.dao(bean));
+		/*result = (HashMap<String, Object>) di.dao(bean);*/
 		System.out.println(result);
 		return result;
 	}
@@ -73,9 +83,22 @@ public class ListService implements ListServiceInterface {
 		result.put("status", di.dao(bean));
 		return result;
 	}
-	
-	
-	
+
+	@Override
+	public HashMap<String, Object> pref_list(HashMap<String, Object> param) {
+		result = new HashMap<String, Object>();
+		bean = new DaoBean("SelectList", ns+".preflist", param);
+		result.put("pref", di.dao(bean));
+		return result;
+	}
+
+	@Override
+	public HashMap<String, Object> reply_insert(HashMap<String, Object> param) {
+		result = new HashMap<String, Object>();
+		bean = new DaoBean("Insert", ns+".replyinsert", param);
+		result.put("status", di.dao(bean));
+		return result;
+	}
 	
 	
 }

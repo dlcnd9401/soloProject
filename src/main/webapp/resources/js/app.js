@@ -1,14 +1,14 @@
 
-var app = angular.module("Charm", ["ngRoute","Home","Board","Boarddetail","Login","SignUp","Textview","Actcreate","Story","Adetail","Qwrite"]);
+var app = angular.module("Charm", ["ngRoute","Home","Board","Boarddetail","Login","SignUp","Textview","Actcreate","Story","Adetail","Qwrite","Pref"]);
 
 app.config(function($routeProvider){
 	$routeProvider.when("/home", {
 		templateUrl : "resources/views/home.html",
 		controller : "home"
-	}).when("/board", {
+	}).when("/board/:boardtype", {
 		templateUrl : "resources/views/board.html",
 		controller : "board"
-	}).when("/boarddetail", {
+	}).when("/boarddetail/:detailparam", {
 		templateUrl : "resources/views/detailtoy.html",
 		controller : "boarddetail"
 	}).when("/actcreate", {
@@ -23,15 +23,18 @@ app.config(function($routeProvider){
 	}).when("/textview", {
 		templateUrl : "resources/views/textview.html",
 		controller : "textview"
-	}).when("/story", {
+	}).when("/story/:storyauth", {
 		templateUrl : "resources/views/story.html",
 		controller : "story"
-	}).when("/adetail", {
+	}).when("/adetail/:param", {
 		templateUrl : "resources/views/adetail.html",
 		controller : "adetail"
 	}).when("/qwrite", {
 		templateUrl : "resources/views/Qwrite.html",
 		controller : "qwrite"
+	}).when("/pref", {
+		templateUrl : "resources/views/pref.html",
+		controller : "pref"
 	}).otherwise({redirectTo: "/home"});
 });
 
@@ -54,29 +57,17 @@ $rootScope.user = {
 		del_yn: ""
 }
 
-$rootScope.webveiw = {
-		title:"",
-		sort:""
-	}
 
-$rootScope.auth= [
-	{
-		auth : ""
-	}
-]
-$rootScope.type = [
-	{
-		type: ""
-	}
-]
 
-$rootScope.serial3 = function(param){
-	$rootScope.auth.auth = param;
+$rootScope.prefmove = function(param_userid){
+	console.log(param_userid);
+	$rootScope.user.id=param_userid;
+	console.log($rootScope.user);
 }
 
-$rootScope.boardkinds= function(parambody){
+/*$rootScope.boardkinds= function(parambody){
 	$rootScope.type.type = parambody;
-	};
+	};*/
 	
 	$rootScope.fileUpload = (url, formData, param) =>{
 		var result = {}
@@ -93,8 +84,28 @@ $rootScope.boardkinds= function(parambody){
 		return result;
 
 	};
+	
+	 $rootScope.loginCheck= function(){
+	   	 $http.post("LoginCheck","","")
+	 	   .then(function(userdata){
+	 		 console.log(userdata);
+	 		 if(userdata == null){
+	 			 console.log("비 로그인"); 
+	 		 }else {
+	 			 $rootScope.user = userdata.data.user;
+		 		console.log("로그인 정보");
+	 			 console.log($rootScope.user);
+		 		}
+	 	   },function(userdata){
+	 		   console.log(userdata);
+	 	   });
+	    }
+	 
+	 $rootScope.loginCheck();
 
 });
+
+
 
 
 /*FileSErvice*/

@@ -2,10 +2,10 @@ var app = angular.module("Actcreate",[]);
 app.controller("actcreate", function($rootScope, $scope,$http,$q,FileService){
 	//$id : $rootScope.user.id auth:$rootScope.user.auth
 	$rootScope.catelist = {
-			id:"admin",  
+			id:$rootScope.user.id,  
 			title:"",
 			introduce:"",
-			auth:1,
+			auth:$rootScope.user.auth,
 			type:"",
 			img:""
 	}

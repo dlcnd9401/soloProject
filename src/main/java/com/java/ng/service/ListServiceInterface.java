@@ -10,6 +10,9 @@ public interface ListServiceInterface {
 	HashMap<String,Object>sortSearch(HashMap<String,Object>param);
 	HashMap<String,Object>authwrite(HashMap<String, Object>param);
 	HashMap<String,Object>actcreate(HashMap<String, Object>param);
+	HashMap<String,Object>pref_list(HashMap<String,Object>param);
+	HashMap<String,Object>reply_insert(HashMap<String,Object>param);
+	HashMap<String,Object>adetailparams(HashMap<String,Object>param);
 	
 }
 

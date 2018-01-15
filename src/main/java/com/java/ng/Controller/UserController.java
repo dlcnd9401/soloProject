@@ -1,6 +1,10 @@
 package com.java.ng.Controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,14 +27,23 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView login(HttpServletRequest req){
+	public ModelAndView login(HttpServletRequest req, HttpSession session){
+		   HashMap<String, Object> map = tsi.login(HttpUtil.paramMap(req));
+		   session.setAttribute("user", map);	
 		return HttpUtil.returnJson(tsi.login(HttpUtil.paramMap(req)));
 	}
 	
 	
-	@RequestMapping(value="/loginchk", method = RequestMethod.POST)
-	public ModelAndView loginchk(HttpServletRequest req){
-		return HttpUtil.returnJson(tsi.login(HttpUtil.paramMap(req)));
+	 @RequestMapping(value="/LoginCheck", method = RequestMethod.POST)
+	   public void LoginCheck(HttpServletResponse resp, HttpSession session){
+	      HashMap<String, Object> userinfo = (HashMap<String, Object>) session.getAttribute("user");
+	      HashMap<String, Object> map = new HashMap<String, Object>();
+	      if(userinfo == null){
+	         map.put("status", 0);
+	      }else{
+	         map.put("status", 1);
+	         map.put("user", userinfo);
+	      }
+	      HttpUtil.sendResponceToJson(resp, map);
+	   }
 	}
-	
-}

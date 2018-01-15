@@ -1,0 +1,30 @@
+<section>
+        <div class ="story_box">
+    <div class ="story_box_head">
+        <li class="dropdown genre" style="float:left; list-style: none; margin: 0.75vh 1vw;">
+                   <a class="dropdown-toggle" data-toggle="dropdown" href="#"></a>
+       </li>
+  
+        <p> 선호작 관리 </p></div>
+    <div id="" class ="pref_inbox" dir-paginate="rows in userpref | itemsPerPage:5">
+    <a href ="#!/adetail" data-ng-click="titleclick(rows.title)">
+    <p>{{rows.title}}</p>
+    <div class="pref_inbox_img">
+        <img src ={{rows.img}}>
+        </div>
+        <div class ="pref_inbox_contents">
+    <p>작가 : {{rows.id}}</p>
+    <p>조회수 : {{rows.click}} 선호작 : {{rows.pref}}</p>
+            <p>소개 : {{rows.introduce}}</p>
+    <p>장르 : {{rows.type}}</p>
+        </div>
+        </a>
+    </div>
+     <dir-pagination-controls style="margin: 10vh 45%"
+       max-size="10"
+       direction-links="true"
+       boundary-links="true" >
+    </dir-pagination-controls>
+</div>
+
+</section>
