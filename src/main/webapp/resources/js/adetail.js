@@ -1,7 +1,7 @@
 var app = angular.module("Adetail",[]);
 app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 	console.log($routeParams.param);
-	$scope.titlechk = {
+	$rootScope.titlechk = {
 			title:"",
 			id:"",
 			click:"",
@@ -12,27 +12,27 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 			no:""
 	}
 
-	$scope.titleparams = {
+	$rootScope.titleparams = {
 			no:$routeParams.param
 	}
-	console.log($scope.titleparams);
-	$scope.actdetail=[];
+	console.log($rootScope.titleparams);
+	$rootScope.actdetail=[];
 	
 	$rootScope.orderby = function(){
-			  $http.post("Adetailparams","",{params:{no:$scope.titleparams.no}})
+			  $http.post("Adetailparams","",{params:{no:$rootScope.titleparams.no}})
 			.then(function(result){
 				console.log("성공");
 				console.log(result);
-				$scope.titlechk = result.data;
+				$rootScope.titlechk = result.data;
 				console.log($scope.titlechk);
 				
 				$scope.adetail = function(){
-					  $http.post("Adetail","",{params:{title:$scope.titlechk.title}})
+					  $http.post("Adetail","",{params:{title:$rootScope.titlechk.title}})
 					.then(function(result){
 						console.log("성공");
 						console.log(result);
-						$scope.actdetail = result.data.list;
-						console.log($scope.actdetail);
+						$rootScope.actdetail = result.data.list;
+						console.log($rootScope.actdetail);
 					},function(result){
 						console.log("실패 :" + result);
 					});	
@@ -45,7 +45,7 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 			});	
 		}
 	
-	$scope.orderby();
+	$rootScope.orderby();
 	$scope.webveiw = {
 			title:"",
 			sort:""
@@ -63,6 +63,7 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 		});
 		
 	}
+	
 	
 	$scope.Pref_check = function(){
 		$http.post("Pref_check","",{params:{title:$scope.titlechk.title , id : $rootScope.user.id}})

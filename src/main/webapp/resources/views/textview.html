@@ -32,7 +32,7 @@
        boundary-links="true" >
        </dir-pagination-controls>
        
-       <form data-ng-submit="replyinsert()" data-ng-if="$rootScope.LoginStatus = 1">
+       <form data-ng-submit="replyinsert()" data-ng-if="LoginStatus==1">
                 <div class ="textview_input">     
         <p >Comments : <input type="text" data-ng-model="replyindex.req_contents" name="req_contents" placeholder ="댓글을 입력하세요." style="margin-top:1vh; width:85vw;"><button type="submit" style="width:5.5vw;margin-left:1.5vw;"> 작성 </button> </p>
         </div>

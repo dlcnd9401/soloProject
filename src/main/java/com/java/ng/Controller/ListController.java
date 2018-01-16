@@ -69,35 +69,9 @@ public class ListController {
 		return HttpUtil.returnJson(lsi.reply_insert(HttpUtil.paramMap(req)));
 	}
 	
+	@RequestMapping(value="/List_Reply_insert", method = RequestMethod.POST)
+	public ModelAndView List_Reply_insert(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.listreply_insert(HttpUtil.paramMap(req)));
+	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
+	}

@@ -46,7 +46,7 @@
 	</insert>
 	
 	<select id ="preflist" resultType="hashmap" parameterType="hashmap">
- 			select p.title,c.id,c.introduce,c.click,c.pref,c.img from `category` as c inner join `pref` as p 
+ 			select c.no,p.title,c.id,c.introduce,c.click,c.pref,c.img from `category` as c inner join `pref` as p 
  			on(c.title=p.title) where p.id = #{id} and p.del_yn ='N'
 	</select>
 	
@@ -54,9 +54,11 @@
 		insert into reply (rep_contents,rep_id,nv_repno,title) values (#{req_contents}, #{req_id}, #{nv_repno},#{title})
 	</insert>
 	
-	<insert id="prefchecked" parameterType="hashmap">
-	insert into pref ( title, del_yn, id ) values(#{title}, 'N', #{id});
+	<select id ="boarddetail_reply" resultType="hashmap" parameterType="hashmap">
+ 			select *,DATE_FORMAT(rep_date, '%Y-%m-%d') as date from reply where title = #{title} and type=#{type}
+	</select>
+	
+	<insert id="list_replyinsert" parameterType="hashmap">
+		insert into reply (rep_contents,rep_id,type,title) values (#{req_contents}, #{req_id}, #{type},#{title});
 	</insert>
-	
-	
 </mapper>

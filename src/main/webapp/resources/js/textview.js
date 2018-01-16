@@ -18,6 +18,7 @@ app.controller("textview", function($rootScope, $scope,$http){
 			   title:"",
 			   req_contents:"",
 			   nv_repno:"",
+			   list_repno:"",
 			   req_id:$rootScope.user.id
 	   }
 	

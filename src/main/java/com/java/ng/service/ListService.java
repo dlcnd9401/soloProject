@@ -1,6 +1,9 @@
 package com.java.ng.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,8 +55,19 @@ public class ListService implements ListServiceInterface {
 	
 	@Override
 	public HashMap<String, Object> detaillist(HashMap<String, Object> param) {
+		result = new HashMap<String,Object>();
 		bean = new DaoBean("SelectOne", ns+".detailcontents", param);
-		result = (HashMap<String, Object>) di.dao(bean);
+		result.put("list_data", di.dao(bean));
+		
+		HashMap<String,Object>Map = (HashMap<String,Object>)di.dao(bean);
+		
+		param = new HashMap<String,Object>();
+		param.put("title",Map.get("title"));
+		param.put("type",Map.get("type"));
+		
+		bean = new DaoBean("SelectList", ns+".boarddetail_reply", param);
+		result.put("reply", di.dao(bean));
+		
 		return result;
 	}
 
@@ -99,12 +113,13 @@ public class ListService implements ListServiceInterface {
 		result.put("status", di.dao(bean));
 		return result;
 	}
-
+	
 	@Override
-	public HashMap<String, Object> pref_on(HashMap<String, Object> param) {
+	public HashMap<String, Object> listreply_insert(HashMap<String, Object> param) {
+		System.out.println("확인하기 : "+ param);
 		result = new HashMap<String, Object>();
-		bean = new DaoBean("Insert", ns+".prefchecked", param);
-		result.put("prefchk", di.dao(bean));
+		bean = new DaoBean("Insert", ns+".list_replyinsert", param);
+		result.put("status", di.dao(bean));
 		return result;
 	}
 	

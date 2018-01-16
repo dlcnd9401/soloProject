@@ -19,11 +19,11 @@ app.controller("story", function($rootScope, $scope,$http,$routeParams){
 	$rootScope.story();
 
 	
-	$scope.titleclick = function(param){
+	$rootScope.titleclick = function(param){
 		console.log(param);
 		location.href="#!/adetail/" + param;
 		/*$rootScope.titlechk=param;
-		console.log($rootScope.titlechk);*/
+		codasdsansole.log($rootScope.titlechk);*/
 	}
 		
 });

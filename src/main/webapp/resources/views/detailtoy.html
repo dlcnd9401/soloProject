@@ -17,26 +17,24 @@
 	<div class="textview_head" style="height: 5vh;">
             <p style="float:left; margin-left:2vw">Comments</p>
         </div>
-        <div class="textview_comments">
-                <div class="view_reply"> 
-                <p>ID : <span>admin</span></p>
-                <p>comments : <span>잘 보고 갑니다~</span> </p>
-                </div>
-                <div class="view_reply"> 
-                <p>ID : <span>admin</span></p>
-                <p>comments : <span>잘 보고 갑니다~</span> </p>
-                </div>
-                <div class="view_reply"> 
-                <p>ID : <span>admin</span></p>
-                <p>comments : <span>잘 보고 갑니다~</span> </p>
-                </div>
-                <div class="view_reply"> 
-                <p>ID : <span>admin</span></p>
-                <p>comments : <span>잘 보고 갑니다~</span></p>
+<div class ="textview_comments" dir-paginate="rows2 in reply_data | itemsPerPage:7">
+                <div class ="view_reply"> 
+                <hr>
+                <p>ID : <span>{{rows2.rep_id}}</span> 날짜: <span>{{rows2.date}}</span></p>
+                <p>comments : <span>{{rows2.rep_contents}}</span>  </p>
+                <hr>
                 </div>
             </div>
+            <dir-pagination-controls style="margin: 10vh 45%"
+       max-size="7"
+       direction-links="true"
+       boundary-links="true" >
+       </dir-pagination-controls>
             <div class="textview_input">
-        <p>Comments : <input type="text" value="댓글을 입력하세요." style="margin-top:1vh; width:85vw;"><button type="button" style="width:5.5vw;margin-left:1.5vw;"> 작성 </button> </p>
-        
+        <form data-ng-submit="boardset(detailview.title)" data-ng-if="LoginStatus==1">
+                <div class ="textview_input">     
+        <p >Comments : <input type="text" data-ng-model="replylist_index.req_contents" name="req_contents" placeholder ="댓글을 입력하세요." style="margin-top:1vh; width:85vw;"><button type="submit" style="width:5.5vw;margin-left:1.5vw;"> 작성 </button> </p>
         </div>
+        </form>
+	  
 </section>

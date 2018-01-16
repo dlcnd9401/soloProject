@@ -9,7 +9,8 @@ app.controller("pref", function($rootScope, $scope,$http){
 			id:"",
 			click:"",
 			pref:"",
-			img:""
+			img:"",
+			no:""
 	}
 	
 	

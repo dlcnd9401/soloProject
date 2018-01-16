@@ -449,12 +449,12 @@ height: 39vh;
     min-height: 5vh;
     height: auto;
     margin: 1vh 1vw;
-    border: 1px solid black;
     text-align: left;
 
 }
 .textview_input p{
     margin-left: 1vw;
+    width:100%;
 }
 .view_reply{
     margin: 0;

@@ -7,7 +7,7 @@
   
         <p> 선호작 관리 </p></div>
     <div id="" class ="pref_inbox" dir-paginate="rows in userpref | itemsPerPage:5">
-    <a href ="#!/adetail" data-ng-click="titleclick(rows.title)">
+    <a data-ng-click="titleclick(rows.no)">
     <p>{{rows.title}}</p>
     <div class="pref_inbox_img">
         <img src ={{rows.img}}>
@@ -15,7 +15,7 @@
         <div class ="pref_inbox_contents">
     <p>작가 : {{rows.id}}</p>
     <p>조회수 : {{rows.click}} 선호작 : {{rows.pref}}</p>
-            <p>소개 : {{rows.introduce}}</p>
+    <p>소개 : {{rows.introduce}}</p>
     <p>장르 : {{rows.type}}</p>
         </div>
         </a>
