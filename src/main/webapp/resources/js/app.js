@@ -65,9 +65,6 @@ $rootScope.prefmove = function(param_userid){
 	console.log($rootScope.user);
 }
 
-/*$rootScope.boardkinds= function(parambody){
-	$rootScope.type.type = parambody;
-	};*/
 	
 	$rootScope.fileUpload = (url, formData, param) =>{
 		var result = {}
@@ -85,22 +82,39 @@ $rootScope.prefmove = function(param_userid){
 
 	};
 	
+	$rootScope.logout = function(){
+		$http.post("Logoff","","").then(function(result){
+			$rootScope.LoginStatus = 0;
+ 			console.log("userdata 초기화");
+ 			$rootScope.loginCheck();
+			location.href="#!/home";
+		},function(result){
+		})
+	}
+	
 	 $rootScope.loginCheck= function(){
 	   	 $http.post("LoginCheck","","")
 	 	   .then(function(userdata){
-	 		 console.log(userdata);
-	 		 if(userdata == null){
-	 			 console.log("비 로그인"); 
+	 		 if(userdata.data.status == 0){
+	 			 $rootScope.LoginStatus = 0;
+	 			 console.log("비 로그인");
+	 			$rootScope.user = {
+						no:"",
+						id:"",
+						name:"",
+						pw:"",
+						tel:"",
+						del_yn: ""
+				}
 	 		 }else {
 	 			 $rootScope.user = userdata.data.user;
+	 			$rootScope.LoginStatus = 1;
 		 		console.log("로그인 정보");
 	 			 console.log($rootScope.user);
 		 		}
 	 	   },function(userdata){
-	 		   console.log(userdata);
 	 	   });
 	    }
-	 
 	 $rootScope.loginCheck();
 
 });

@@ -69,5 +69,35 @@ public class ListController {
 		return HttpUtil.returnJson(lsi.reply_insert(HttpUtil.paramMap(req)));
 	}
 	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

@@ -11,6 +11,7 @@ app.controller("signup", function($rootScope, $scope,$http){
       	 $http.post("signup","",{params: $rootScope.user})
     	   .then(function(result){
     		  console.log(result);
+    		  location.href = "#!/home";
     	   },function(result){
     		   console.log(result);
     	   });

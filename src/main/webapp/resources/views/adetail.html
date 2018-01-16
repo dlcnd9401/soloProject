@@ -14,8 +14,11 @@
         
             <p> 작품 소개 : <span>{{titlechk.introduce}}</span></p>            
             조회수 : <span>{{titlechk.title.click}}</span> 선호작 : <span>{{titlechk.pref}}</span>
-            <div><button type="button" class ="ad_btn">선호작 등록</button></div>
-            <div><button type="button" class ="ad_btn">글 작성</button></div>
+            <div data-ng-if="LoginStatus==1">
+            <div><button type="button"  data-ng-click ="prefchecked()" data-ng-if="void==1" class ="ad_btn">선호작 등록</button></div>
+            <div><button type="button"  data-ng-click ="prefchecked()" data-ng-if="void==2"  class ="ad_btn">선호작 해제</button></div>
+            <div><button type="button"  data-ng-if="user.id==titlechk.id" class ="ad_btn">글 작성</button></div>
+            </div>
             </div>
         
         </div>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pref">
+	<insert id="prefinsert" parameterType="hashmap">
+	insert into pref ( title, del_yn, id ) values(#{title}, 'N', #{id});
+	</insert>
+	
+	<select id ="prefchecked" resultType="hashmap" parameterType="hashmap">
+ 		select no,del_yn from pref where id = #{id} and title=#{title}
+	</select>
+	
+		<select id ="prefchecking" resultType="hashmap" parameterType="hashmap">
+ 		select no,del_yn from pref where id = #{id} and title=#{title} and del_yn = "N"
+	</select>
+	
+	<update id="prefupdate" parameterType="hashmap">
+		update pref set del_yn = 'Y' where no = #{no}
+	</update>
+
+	<update id="prefdelete" parameterType="hashmap">
+		update pref set del_yn = 'N' where no = #{no}
+	</update>
+</mapper>

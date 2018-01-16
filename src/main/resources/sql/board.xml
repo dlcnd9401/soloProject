@@ -54,7 +54,9 @@
 		insert into reply (rep_contents,rep_id,nv_repno,title) values (#{req_contents}, #{req_id}, #{nv_repno},#{title})
 	</insert>
 	
-	
+	<insert id="prefchecked" parameterType="hashmap">
+	insert into pref ( title, del_yn, id ) values(#{title}, 'N', #{id});
+	</insert>
 	
 	
 </mapper>

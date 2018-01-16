@@ -18,7 +18,7 @@ app.controller("textview", function($rootScope, $scope,$http){
 			   title:"",
 			   req_contents:"",
 			   nv_repno:"",
-			   req_id:"충민"
+			   req_id:$rootScope.user.id
 	   }
 	
 	
@@ -86,7 +86,6 @@ app.controller("textview", function($rootScope, $scope,$http){
 	    		   console.log(result);
 	    	   });
 	      	$rootScope.viewpoint();
-	      	
-	}
+	};
 	
 });

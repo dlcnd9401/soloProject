@@ -13,6 +13,7 @@ public interface ListServiceInterface {
 	HashMap<String,Object>pref_list(HashMap<String,Object>param);
 	HashMap<String,Object>reply_insert(HashMap<String,Object>param);
 	HashMap<String,Object>adetailparams(HashMap<String,Object>param);
+	HashMap<String,Object>pref_on(HashMap<String,Object>param);
 	
 }
 

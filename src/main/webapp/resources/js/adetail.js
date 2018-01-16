@@ -15,7 +15,6 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 	$scope.titleparams = {
 			no:$routeParams.param
 	}
-	
 	console.log($scope.titleparams);
 	$scope.actdetail=[];
 	
@@ -39,6 +38,7 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 					});	
 				}
 					$scope.adetail();
+					$scope.Pref_check();
 				
 			},function(result){
 				console.log("실패 :" + result);
@@ -46,12 +46,38 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 		}
 	
 	$scope.orderby();
-	
-	
 	$scope.webveiw = {
 			title:"",
 			sort:""
 		}
+	
+	$scope.prefchecked = function(){
+		$http.post("Pref_on","",{params:{title:$scope.titlechk.title , id : $rootScope.user.id}})
+		.then(function(result){
+			console.log("성공 ");	
+			console.log(result);
+			$rootScope.void = result.data.stat;
+			console.log(result.data.stat);
+			$scope.Pref_check();
+		},function(result){
+		});
+		
+	}
+	
+	$scope.Pref_check = function(){
+		$http.post("Pref_check","",{params:{title:$scope.titlechk.title , id : $rootScope.user.id}})
+		.then(function(result){
+			console.log("성공 ");	
+			console.log(result);
+			$rootScope.void = result.data.stat;
+			console.log("check 값 : " + result.data.stat);
+		},function(result){
+			
+		});
+		
+	}
+	
+	
 	
 	
 	$rootScope.viewdetailparam = function(viewdetailno){
@@ -69,6 +95,9 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 		console.log($rootScope.webview.title);
 		console.log($rootScope.webview.sort);
 	};
+	
+	
+	
 	
 	
 });

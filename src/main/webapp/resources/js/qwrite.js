@@ -1,7 +1,7 @@
 var app = angular.module("Qwrite",[]);
 app.controller("qwrite", function($rootScope, $scope,$http){
 	$rootScope.Tywrite = {
-			id:"",
+			id:$rootScope.user.id,
 			contents:"",
 			title:"",
 			auth:$rootScope.list_auth,
@@ -16,6 +16,7 @@ app.controller("qwrite", function($rootScope, $scope,$http){
      	 $http.post("Authwrite","",{params: $rootScope.Tywrite})
    	   .then(function(result){
    		  console.log(result);
+   		  location.href = "#!/board";
    	   },function(result){
    		   console.log(result);
    	   });

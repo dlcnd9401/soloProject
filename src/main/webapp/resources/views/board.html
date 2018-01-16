@@ -24,7 +24,7 @@
       
       
       <td>{{rows.title}}</td>
-      <td><a href ="#!/boarddetail">{{rows.contents}}</a></td>
+      <td><a data-ng-click="detailclick(rows.no)">{{rows.contents}}</a></td>
       <td>{{rows.id}}</td>
       <td>{{rows.click}}</td>
       <td>{{rows.reg_date}}</td>
@@ -38,7 +38,7 @@
        boundary-links="true" >
     </dir-pagination-controls>
         <div class ="board_btn">
-        <button type ="button" data-ng-click="qwrite(list_auth)">{{list_type}} 작성</button>
+        <button type ="button" data-ng-if="LoginStatus==1" data-ng-click="qwrite(list_auth)">{{list_type}} 작성</button>
         </div>
 </div>
 

@@ -8,13 +8,13 @@
         <form name="writeForm" data-ng-submit="writeType()" >
         <br>
         <div class ="writeA">
-        <span>ID : </span> <br><br>  
-        <span>소제목 : </span><br>  <br>
+        <!-- <span>ID : </span> <br><br> -->  
+        <span>게시글 제목 : </span><br>  <br>
         <span style="">내용 : </span>
         </div>
-        <div class ="writeB">
+        <div class ="writeB">  
         
-        <input type="text" name="id" data-ng-model="Tywrite.id"><br><br>
+        <!-- <input type="text" name="id" readonly="readonly" data-ng-model="Tywrite.id" value="user.id"><br><br> -->
         <input type="text" name="title" data-ng-model="Tywrite.title"><br><br>
         <textarea style="width: 80vw;height: 20vh"name ="contents" data-ng-model="Tywrite.contents"></textarea>
             </div>

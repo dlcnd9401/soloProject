@@ -99,6 +99,14 @@ public class ListService implements ListServiceInterface {
 		result.put("status", di.dao(bean));
 		return result;
 	}
+
+	@Override
+	public HashMap<String, Object> pref_on(HashMap<String, Object> param) {
+		result = new HashMap<String, Object>();
+		bean = new DaoBean("Insert", ns+".prefchecked", param);
+		result.put("prefchk", di.dao(bean));
+		return result;
+	}
 	
 	
 }

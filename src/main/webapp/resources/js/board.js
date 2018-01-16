@@ -27,4 +27,10 @@ app.controller("board", function($rootScope, $scope,$http,$routeParams){
 			console.log(listauth);
 		}
 		
+		
+		$rootScope.detailclick = function(detailparam){
+			location.href = "#!/boarddetail/" + detailparam; 
+		}
+		
+		
 });

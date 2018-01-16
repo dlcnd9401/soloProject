@@ -33,6 +33,11 @@ public class UserController {
 		return HttpUtil.returnJson(tsi.login(HttpUtil.paramMap(req)));
 	}
 	
+	@RequestMapping(value = "/Logoff", method = RequestMethod.POST)
+	public void LogOut(HttpServletResponse resp, HttpSession session){
+		session.invalidate();
+	}
+	
 	
 	 @RequestMapping(value="/LoginCheck", method = RequestMethod.POST)
 	   public void LoginCheck(HttpServletResponse resp, HttpSession session){

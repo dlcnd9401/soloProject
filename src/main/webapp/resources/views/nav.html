@@ -19,15 +19,15 @@
     <li><a href="#!/board/자유">자유 게시판</a></li>
             </ul>
         </li>
-        <li>
+        <li data-ng-if="LoginStatus==1">
             <a href="#">작품 관리 ▼</a>
             <ul class="navhidden">
        <li><a href="#!/pref">선호작</a></li>
-       <li><a href="#!/actcreate">새 연재 등록</a></li>
+       <li><a href="#!/actcreate" data-ng-if="LoginStatus==1">새 연재 등록</a></li>
             </ul>
         </li>
         <li><a href="#!/board/문의">문의</a></li>
-        <li>
+        <li data-ng-if="user.auth==3">
             <a href="#">관리자 모드 ▼</a>
             <ul class="navhidden">
        <li><a href="#">회원 관리</a></li>

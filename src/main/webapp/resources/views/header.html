@@ -2,9 +2,9 @@
         <header>
         <div class="headdiv3">
         <!-- loginStatus사용할 것 -->
-        <a href ="#!/login" data-ng-if="!user.id">Log-in</a>
-              <a href ="#!/signup" data-ng-if="!user.id">Sign-Up</a>
-                   <a href ="/#!logout" data-ng-if="user.id">Log-out</a>
+        <a href ="#!/login" data-ng-if="LoginStatus==0">Log-in</a>
+              <a href ="#!/signup" data-ng-if="LoginStatus==0">Sign-Up</a>
+                   <a data-ng-click="logout()" data-ng-if="LoginStatus==1">Log-out</a>
         </div>
         <div class="headdiv7">
         <p>Charming Page</p>
