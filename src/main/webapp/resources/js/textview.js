@@ -1,7 +1,6 @@
 // 앵귤라 모듈 만들기
 var app = angular.module("Textview",['angularUtils.directives.dirPagination']);
 app.controller("textview", function($rootScope, $scope,$http){
-	
 	console.log($rootScope.webview);
 	$rootScope.movsort = {
 			title:"",

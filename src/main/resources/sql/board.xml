@@ -5,7 +5,7 @@
 <mapper namespace="board">
 	<select id="boardlist" resultType="hashmap" parameterType="hashmap">
 		select no,title,contents,id,click,type,DATE_FORMAT(reg_date, '%Y-%m-%d') as
-		 reg_date,auth from list where del_yn="N" and type=#{type} order by no desc;
+		 reg_date,auth from list where del_yn="N" and type=#{type} order by reg_date desc;
 	</select>
 	
 	<select id="serial" resultType="hashmap" parameterType="hashmap">
@@ -55,10 +55,25 @@
 	</insert>
 	
 	<select id ="boarddetail_reply" resultType="hashmap" parameterType="hashmap">
- 			select *,DATE_FORMAT(rep_date, '%Y-%m-%d') as date from reply where title = #{title} and type=#{type}
+ 			select *,DATE_FORMAT(rep_date, '%Y-%m-%d %T') as date from reply where title = #{title} and type=#{type} order by rep_date desc;
 	</select>
 	
 	<insert id="list_replyinsert" parameterType="hashmap">
 		insert into reply (rep_contents,rep_id,type,title) values (#{req_contents}, #{req_id}, #{type},#{title});
 	</insert>
+	
+	
+	<!-- 조회수 관리  category + novel -->
+	<update id="clickcategory" parameterType="hashmap">
+		update category set click = click+1 where title =#{title};
+	</update>
+	
+	<update id="clicknovel" parameterType="hashmap">
+		update novel set click = click+1 where no =#{no};
+	</update>
+	
+	
+	
+	
+	
 </mapper>

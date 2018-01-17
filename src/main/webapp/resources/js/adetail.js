@@ -52,7 +52,7 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 		}
 	
 	$scope.prefchecked = function(){
-		$http.post("Pref_on","",{params:{title:$scope.titlechk.title , id : $rootScope.user.id}})
+		$http.post("Pref_on","",{params:{title:$rootScope.titlechk.title , id : $rootScope.user.id}})
 		.then(function(result){
 			console.log("성공 ");	
 			console.log(result);
@@ -63,10 +63,18 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 		});
 		
 	}
-	
+	$rootScope.click_up = function(){
+		$http.post("Textview_click","",{params:{title:$rootScope.titlechk.title ,no:$rootScope.webview.no}})
+		.then(function(result){
+			console.log("성공 ");	
+		},function(result){
+			console.log("실패");
+		});
+		
+	}
 	
 	$scope.Pref_check = function(){
-		$http.post("Pref_check","",{params:{title:$scope.titlechk.title , id : $rootScope.user.id}})
+		$http.post("Pref_check","",{params:{title:$rootScope.titlechk.title , id : $rootScope.user.id}})
 		.then(function(result){
 			console.log("성공 ");	
 			console.log(result);
@@ -81,15 +89,21 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 	
 	
 	
+	
+	
+	
+	
 	$rootScope.viewdetailparam = function(viewdetailno){
-		console.log(viewdetailno);
+		console.log(viewdetailno.no);
+		
 		$rootScope.webview = 
 			{title:viewdetailno.title,
 			 sort:viewdetailno.sort,
-			 stitle:viewdetailno.stitle
+			 stitle:viewdetailno.stitle,
+			 no:viewdetailno.no
 			}
 		
-		
+		$rootScope.click_up();
 		
 		console.log("param 확인 ");
 		console.log($rootScope.webview);

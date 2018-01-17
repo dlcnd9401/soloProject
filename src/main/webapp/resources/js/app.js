@@ -59,6 +59,9 @@ $rootScope.user = {
 
 
 
+	
+
+
 $rootScope.prefmove = function(param_userid){
 	console.log(param_userid);
 	$rootScope.user.id=param_userid;

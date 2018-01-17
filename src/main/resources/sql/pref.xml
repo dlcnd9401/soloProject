@@ -11,7 +11,7 @@
  		select no,del_yn from pref where id = #{id} and title=#{title}
 	</select>
 	
-		<select id ="prefchecking" resultType="hashmap" parameterType="hashmap">
+	<select id ="prefchecking" resultType="hashmap" parameterType="hashmap">
  		select no,del_yn from pref where id = #{id} and title=#{title} and del_yn = "N"
 	</select>
 	
@@ -22,4 +22,18 @@
 	<update id="prefdelete" parameterType="hashmap">
 		update pref set del_yn = 'N' where no = #{no}
 	</update>
+	
+	<select id ="prefclickupdate" resultType="hashmap" parameterType="hashmap">
+ 			select c.no,p.title,c.title as bigtitle,c.click from category as c inner join pref as p
+			on(c.title = p.title) where c.title=#{bigtitle} limit 1; 
+	</select>
+	<update id="prefclickup" parameterType="hashmap">
+		update category set pref = pref+1 where no =#{catno};
+	</update>
+	
+	<update id="prefclickdown" parameterType="hashmap">
+		update category set pref = pref-1 where no =#{catno};
+	</update>
+	
+	
 </mapper>

@@ -123,5 +123,24 @@ public class ListService implements ListServiceInterface {
 		return result;
 	}
 	
+	@Override
+	public HashMap<String, Object> click_up(HashMap<String, Object> param) {
+		System.out.println("확인하기 : "+ param);
+		result = new HashMap<String, Object>();
+		bean = new DaoBean("Update", ns+".clickcategory", param);
+		result.put("ctgc", di.dao(bean));
+
+		
+		System.out.println("click- category " + result);
+		
+		bean = new DaoBean("Update", ns+".clicknovel", param);
+		result.put("nvc", di.dao(bean));
+		System.out.println("click- novel " + result);
+		
+		return result;
+	}
+	
+	
+	
 	
 }

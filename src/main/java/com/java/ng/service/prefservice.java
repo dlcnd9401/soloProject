@@ -32,6 +32,18 @@ public class prefservice implements PrefserviceInterface {
 			bean = new DaoBean("Insert", ns+".prefinsert", param);
 			result.put("list", di.dao(bean));
 			result.put("stat", 2);
+			
+			param.put("bigtitle", param.get("title")); 
+			bean = new DaoBean("SelectOne", ns+".prefclickupdate", param);
+			HashMap<String,Object> checkeed = (HashMap<String,Object>) di.dao(bean);
+			System.out.println("checkeed 확인 : " + checkeed);
+			if(!(checkeed.get("no") == null)){
+				System.out.println(checkeed.get("no"));
+				param = new HashMap<String,Object>();
+				param.put("catno", checkeed.get("no"));
+				bean = new DaoBean("Update", ns+".prefclickup", param);
+				result.put("Upchk", di.dao(bean));
+			}
 			return result;
 		}else{
 			if(checked.get("del_yn").equals("Y")){
@@ -42,6 +54,22 @@ public class prefservice implements PrefserviceInterface {
 				bean = new DaoBean("Update", ns+".prefdelete", param);
 				result.put("list", di.dao(bean));
 				result.put("stat", 2);
+				
+				
+				
+				param.put("bigtitle", param.get("title")); 
+				bean = new DaoBean("SelectOne", ns+".prefclickupdate", param);
+				HashMap<String,Object> checkeed = (HashMap<String,Object>) di.dao(bean);
+				System.out.println("checkeed 확인 : " + checkeed);
+				if(!(checkeed.get("no") == null)){
+					System.out.println(checkeed.get("no"));
+					param = new HashMap<String,Object>();
+					param.put("catno", checkeed.get("no"));
+					bean = new DaoBean("Update", ns+".prefclickup", param);
+					result.put("Upchk", di.dao(bean));
+				
+				}
+				
 				return result;
 			}else{
 				System.out.println("del_N");
@@ -51,6 +79,21 @@ public class prefservice implements PrefserviceInterface {
 				bean = new DaoBean("Update", ns+".prefupdate", param);
 				result.put("list", di.dao(bean));
 				result.put("stat", 1);
+				
+				param.put("bigtitle", param.get("title")); 
+				bean = new DaoBean("SelectOne", ns+".prefclickupdate", param);
+				HashMap<String,Object> checkeed = (HashMap<String,Object>) di.dao(bean);
+				System.out.println("checkeed 확인 : " + checkeed);
+				if(!(checkeed.get("no") == null)){
+					System.out.println(checkeed.get("no"));
+					param = new HashMap<String,Object>();
+					param.put("catno", checkeed.get("no"));
+					bean = new DaoBean("Update", ns+".prefclickdown", param);
+					result.put("Upchk", di.dao(bean));
+				
+				}
+				
+				
 				return result;
 			}
 			

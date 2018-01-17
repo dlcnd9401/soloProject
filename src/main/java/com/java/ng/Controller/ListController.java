@@ -73,5 +73,10 @@ public class ListController {
 	public ModelAndView List_Reply_insert(HttpServletRequest req){
 		return HttpUtil.returnJson(lsi.listreply_insert(HttpUtil.paramMap(req)));
 	}
+	
+	@RequestMapping(value="/Textview_click", method = RequestMethod.POST)
+	public ModelAndView tv_click(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.click_up(HttpUtil.paramMap(req)));
+	}
 
 	}
