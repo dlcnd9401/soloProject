@@ -78,5 +78,10 @@ public class ListController {
 	public ModelAndView tv_click(HttpServletRequest req){
 		return HttpUtil.returnJson(lsi.click_up(HttpUtil.paramMap(req)));
 	}
+	
+	@RequestMapping(value="/BoardList_Click", method = RequestMethod.POST)
+	public ModelAndView boardclick(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.boardclick_up(HttpUtil.paramMap(req)));
+	}
 
 	}

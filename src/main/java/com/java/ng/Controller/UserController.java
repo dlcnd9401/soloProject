@@ -43,12 +43,18 @@ public class UserController {
 	   public void LoginCheck(HttpServletResponse resp, HttpSession session){
 	      HashMap<String, Object> userinfo = (HashMap<String, Object>) session.getAttribute("user");
 	      HashMap<String, Object> map = new HashMap<String, Object>();
+	      
 	      if(userinfo == null){
-	         map.put("status", 0);
+		         map.put("status", 0);
 	      }else{
-	         map.put("status", 1);
-	         map.put("user", userinfo);
+	    	  if((int)userinfo.get("LoginChecked")==0 ||(int)userinfo.get("LoginChecked")==2){
+	 	         map.put("status", 0);
+	 	      }else{
+	 	         map.put("status", 1);
+	 	         map.put("user", userinfo);
+	 	      }
 	      }
+	      
 	      HttpUtil.sendResponceToJson(resp, map);
 	   }
 	}

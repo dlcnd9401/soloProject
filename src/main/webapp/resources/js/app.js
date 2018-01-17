@@ -52,12 +52,26 @@ $rootScope.user = {
 		no:"",
 		id:"",
 		name:"",
+		pwchk:"",
 		pw:"",
 		tel:"",
-		del_yn: ""
+		del_yn: "",
+		book:""
 }
 
 
+$rootScope.userLogindata_reset = function(){
+	$rootScope.user = {
+			no:"",
+			id:"",
+			name:"",
+			pwchk:"",
+			pw:"",
+			tel:"",
+			del_yn: "",
+			book:""
+	}
+}
 
 	
 
@@ -101,14 +115,7 @@ $rootScope.prefmove = function(param_userid){
 	 		 if(userdata.data.status == 0){
 	 			 $rootScope.LoginStatus = 0;
 	 			 console.log("비 로그인");
-	 			$rootScope.user = {
-						no:"",
-						id:"",
-						name:"",
-						pw:"",
-						tel:"",
-						del_yn: ""
-				}
+	 			 $rootScope.userLogindata_reset();
 	 		 }else {
 	 			 $rootScope.user = userdata.data.user;
 	 			$rootScope.LoginStatus = 1;

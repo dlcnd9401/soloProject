@@ -17,10 +17,9 @@ public interface ListServiceInterface {
 	
 	HashMap<String,Object>listreply_insert(HashMap<String,Object>param);
 	
-	
-	
-	
 	HashMap<String,Object>click_up(HashMap<String,Object>param);
+	
+	HashMap<String,Object>boardclick_up(HashMap<String,Object>param);
 	
 	
 }

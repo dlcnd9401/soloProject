@@ -41,9 +41,9 @@ app.controller("board", function($rootScope, $scope,$http,$routeParams){
 					location.href ="#!/qwrite/";
 				}
 			}
-				
-			
 		}
+		
+
 		
 		
 		$rootScope.detailclick = function(detailparam){

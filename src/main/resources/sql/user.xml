@@ -9,4 +9,19 @@
 	<select id="login" parameterType="hashmap" resultType="hashmap">
 		select * from user where del_yn = 'N' and id = #{id} and pw = #{pw}
 	</select>
+	<select id="idcheck" parameterType="hashmap" resultType="hashmap">
+		select id from user where id = #{id};
+	</select>
+	<select id="pwcheck" parameterType="hashmap" resultType="hashmap">
+		select pw from user where id = #{id};
+	</select>
+	<select id="abcdeft" parameterType="hashmap" resultType="hashmap">
+		select u.no,u.id from user as u inner join category as c on (u.id =c.id) where u.id='chomyang' and u.auth=2 and c.click >= 1000 order by c.click desc limit 1;
+	</select>
+	<update id ="autoauth" parameterType="hashmap">
+		update user set auth=1 where no = #{no}
+	</update>
+	<update id ="autocategory" parameterType="hashmap">
+		update category set auth=1 where id = #{id}
+	</update>
 </mapper>

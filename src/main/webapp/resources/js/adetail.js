@@ -9,7 +9,8 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 			introduce:"",
 			img:"",
 			reg_data:"",
-			no:""
+			no:"",
+			category_click:"",
 	}
 
 	$rootScope.titleparams = {
@@ -18,6 +19,7 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 	console.log($rootScope.titleparams);
 	$rootScope.actdetail=[];
 	
+	/*1. 카테고리 값( 2. list목차 값(3. 실행, 4. 선호작 유무 체크 )) */
 	$rootScope.orderby = function(){
 			  $http.post("Adetailparams","",{params:{no:$rootScope.titleparams.no}})
 			.then(function(result){
@@ -73,6 +75,7 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 		
 	}
 	
+	/*data-ng-if 로 선호작 해제 / 등록 설정하기 */
 	$scope.Pref_check = function(){
 		$http.post("Pref_check","",{params:{title:$rootScope.titlechk.title , id : $rootScope.user.id}})
 		.then(function(result){
@@ -80,13 +83,22 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 			console.log(result);
 			$rootScope.void = result.data.stat;
 			console.log("check 값 : " + result.data.stat);
+			$rootScope.orderbybase();
 		},function(result){
 			
 		});
-		
 	}
-	
-	
+	/*거미줄 너무한데... 카테고리 값 2*/
+	$rootScope.orderbybase = function(){
+		  $http.post("Adetailparams","",{params:{no:$rootScope.titleparams.no}})
+		.then(function(result){
+			$rootScope.titlechk = result.data;
+			console.log($scope.titlechk);
+
+		},function(result){
+			console.log("실패 :" + result);
+		});	
+	}
 	
 	
 	

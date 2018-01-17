@@ -9,17 +9,42 @@ app.controller("actcreate", function($rootScope, $scope,$http,$q,FileService){
 			type:"",
 			img:""
 	}
-
+	
+	$scope.catelist_reset= function(){
+	$rootScope.catelist = {
+			id:$rootScope.user.id,  
+			title:"",
+			introduce:"",
+			auth:$rootScope.user.auth,
+			type:"",
+			img:""
+	}
+	}
 		
 	 $rootScope.cateinsert= function(){
      	 console.log("확인 : ", $rootScope.catelist);
-     	 $http.post("ActCreate","",{params: $rootScope.catelist})
-   	   .then(function(result){
-   		  console.log(result);
-   	   },function(result){
-   		   console.log(result);
-   	   });
-     	 location.href="Charm#!/home";
+     	 if($rootScope.catelist.img==""||$rootScope.catelist.introduce==""||$rootScope.catelist.type==""||$rootScope.catelist.title==""){
+     		 	alert("정보를 전부 입력하세요");
+     		 	$scope.catelist_reset();
+     	 }else{
+     		$http.post("ActCreate","",{params: $rootScope.catelist})
+        	   .then(function(result){
+        		  console.log(result);
+        		  $scope.catechk = result.data.cate_Title_Chk;
+        		  if($scope.catechk == 0){
+        			  alert("이미 있는 제목입니다. 다시 입력하세요.");
+        			  $scope.catelist_reset();
+        		  }else{
+        			  alert("작품이 등록되었습니다.");
+        			  location.href="Charm#!/home";
+        			  $scope.catelist_reset();
+        		  }
+        	   },function(result){
+        		   console.log(result);
+        	   });
+          	 
+     	 }
+     	 
       }
 	
 	$rootScope.submit = function(){ 

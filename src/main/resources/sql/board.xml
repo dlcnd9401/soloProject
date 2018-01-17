@@ -13,7 +13,7 @@
 	</select>
 	
 	<select id="detailbasic" resultType="hashmap" parameterType="hashmap">
-		select no,title,introduce,id,click,type,pref,img,auth,DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date from category where no =#{no};
+		select no,title,introduce,id,click as category_click,type,pref,img,auth,DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date from category where no =#{no};
 	</select>
 	
 	<select id="adetail" resultType="hashmap" parameterType="string" >
@@ -41,9 +41,18 @@
 		insert into list (id,title,contents,type,auth) values (#{id},#{title},#{contents},#{type},#{auth});
 	</insert>
 	
+	<!-- 작품 등록 이름 확인 -->
+	<select id ="catechk" parameterType ="hashmap" resultType="hashmap">
+		select title from category where title =#{title};		
+	</select>
+	
+	
 	<insert id="catewrite" parameterType="hashmap">
 	insert into category (id,title,type,auth,introduce,img) values (#{id},#{title},#{type},#{auth},#{introduce},#{img});
 	</insert>
+	
+	
+	
 	
 	<select id ="preflist" resultType="hashmap" parameterType="hashmap">
  			select c.no,p.title,c.id,c.introduce,c.click,c.pref,c.img from `category` as c inner join `pref` as p 
@@ -73,6 +82,11 @@
 	</update>
 	
 	
+	
+	<!-- boardListClick-up -->
+	<update id = "boardlistclick_up" parameterType="hashmap">
+		update list set click = click+1 where no =#{no}
+	</update>
 	
 	
 	

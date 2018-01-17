@@ -19,6 +19,7 @@ public class ListService implements ListServiceInterface {
 	
 	private final String ns = "board";
 	private HashMap<String, Object> result;
+	private HashMap<String,Object> chk;
 	private DaoBean bean;
 	
 	@Override
@@ -73,7 +74,6 @@ public class ListService implements ListServiceInterface {
 
 	@Override
 	public HashMap<String, Object> sortSearch(HashMap<String, Object> param) {
-		System.out.println("sortsearch :" + param);
 		bean = new DaoBean("SelectOne", ns+".sortsearch", param);
 		result.put("sort", di.dao(bean));
 		bean = new DaoBean("SelectList", ns+".replylist", param);
@@ -90,12 +90,23 @@ public class ListService implements ListServiceInterface {
 		return result;
 	}
 	
+	/* 새 작품 등록 */
+	
 	@Override
 	public HashMap<String, Object> actcreate(HashMap<String, Object> param) {
 		result = new HashMap<String, Object>();
-		bean = new DaoBean("Insert", ns+".catewrite", param);
-		result.put("status", di.dao(bean));
-		return result;
+		bean = new DaoBean("SelectOne", ns+".catechk", param);
+		chk = (HashMap<String,Object>) di.dao(bean);
+		
+		if(!(chk == null)){
+			result.put("cate_Title_Chk", 0);
+			return result;
+		}else{
+			bean = new DaoBean("Insert", ns+".catewrite", param);
+			result.put("status", di.dao(bean));
+			result.put("cate_Title_Chk", 1);
+			return result;
+		}
 	}
 
 	@Override
@@ -116,7 +127,6 @@ public class ListService implements ListServiceInterface {
 	
 	@Override
 	public HashMap<String, Object> listreply_insert(HashMap<String, Object> param) {
-		System.out.println("확인하기 : "+ param);
 		result = new HashMap<String, Object>();
 		bean = new DaoBean("Insert", ns+".list_replyinsert", param);
 		result.put("status", di.dao(bean));
@@ -125,7 +135,6 @@ public class ListService implements ListServiceInterface {
 	
 	@Override
 	public HashMap<String, Object> click_up(HashMap<String, Object> param) {
-		System.out.println("확인하기 : "+ param);
 		result = new HashMap<String, Object>();
 		bean = new DaoBean("Update", ns+".clickcategory", param);
 		result.put("ctgc", di.dao(bean));
@@ -137,6 +146,14 @@ public class ListService implements ListServiceInterface {
 		result.put("nvc", di.dao(bean));
 		System.out.println("click- novel " + result);
 		
+		return result;
+	}
+
+	@Override
+	public HashMap<String, Object> boardclick_up(HashMap<String, Object> param) {
+		result = new HashMap<String, Object>();
+		bean = new DaoBean("Update", ns+".boardlistclick_up", param);
+		result.put("ClickStatus", di.dao(bean));
 		return result;
 	}
 	

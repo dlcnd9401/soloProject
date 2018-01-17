@@ -1,5 +1,5 @@
 var app = angular.module("Home",[]);
-app.controller("home", function($rootScope, $scope,$http){
+app.controller("home", function($rootScope, $scope,$http,$routeParams){
 
 
 	$rootScope.ListData = function(){
