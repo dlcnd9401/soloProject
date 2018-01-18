@@ -10,7 +10,7 @@ app.controller("pref", function($rootScope, $scope,$http){
 			click:"",
 			pref:"",
 			img:"",
-			no:""
+			no:"",
 	}
 	
 	

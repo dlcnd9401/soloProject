@@ -56,9 +56,10 @@ $rootScope.user = {
 		pw:"",
 		tel:"",
 		del_yn: "",
-		book:""
+		book:"",
+		auto:""
 }
-
+$rootScope.promotionCheck=2;
 
 $rootScope.userLogindata_reset = function(){
 	$rootScope.user = {
@@ -73,7 +74,8 @@ $rootScope.userLogindata_reset = function(){
 	}
 }
 
-	
+
+
 
 
 $rootScope.prefmove = function(param_userid){
@@ -83,6 +85,7 @@ $rootScope.prefmove = function(param_userid){
 }
 
 	
+
 	$rootScope.fileUpload = (url, formData, param) =>{
 		var result = {}
 
@@ -109,6 +112,14 @@ $rootScope.prefmove = function(param_userid){
 		})
 	}
 	
+/*	$rootScope.auto = function(){
+		console.log("AUTO확인" + $rootScope.user.auto);
+		 if($rootScope.user.auto == 1){
+		 $rootScope.promotionCheck=1;
+	 }
+		
+	}*/
+	
 	 $rootScope.loginCheck= function(){
 	   	 $http.post("LoginCheck","","")
 	 	   .then(function(userdata){
@@ -121,6 +132,8 @@ $rootScope.prefmove = function(param_userid){
 	 			$rootScope.LoginStatus = 1;
 		 		console.log("로그인 정보");
 	 			 console.log($rootScope.user);
+	 			 $rootScope.promotionCheck=$rootScope.user.auto; 
+	 			 console.log($rootScope.promotionCheck);
 		 		}
 	 	   },function(userdata){
 	 	   });

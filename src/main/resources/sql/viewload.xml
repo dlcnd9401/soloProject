@@ -13,4 +13,7 @@
 		select *,DATE_FORMAT(reg_date, '%Y-%m-%d %T') as date from category where auth = #{auth} order by reg_date desc limit 7 	
 	</select>
 	
+	<select id ="kindList" parameterType="hashmap" resultType ="hashmap">
+		select * from category where auth = #{auth} and type =#{type}
+	</select>
 </mapper>

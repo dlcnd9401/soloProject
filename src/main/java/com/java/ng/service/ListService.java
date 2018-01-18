@@ -78,8 +78,6 @@ public class ListService implements ListServiceInterface {
 		result.put("sort", di.dao(bean));
 		bean = new DaoBean("SelectList", ns+".replylist", param);
 		result.put("reply", di.dao(bean));
-		/*result = (HashMap<String, Object>) di.dao(bean);*/
-		System.out.println(result);
 		return result;
 	}
 	@Override
@@ -138,13 +136,9 @@ public class ListService implements ListServiceInterface {
 		result = new HashMap<String, Object>();
 		bean = new DaoBean("Update", ns+".clickcategory", param);
 		result.put("ctgc", di.dao(bean));
-
-		
-		System.out.println("click- category " + result);
 		
 		bean = new DaoBean("Update", ns+".clicknovel", param);
 		result.put("nvc", di.dao(bean));
-		System.out.println("click- novel " + result);
 		
 		return result;
 	}

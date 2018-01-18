@@ -30,6 +30,7 @@ public class UserController {
 	public ModelAndView login(HttpServletRequest req, HttpSession session){
 		   HashMap<String, Object> map = tsi.login(HttpUtil.paramMap(req));
 		   session.setAttribute("user", map);	
+		   System.out.println("Controller : " + map);
 		return HttpUtil.returnJson(tsi.login(HttpUtil.paramMap(req)));
 	}
 	
@@ -37,6 +38,10 @@ public class UserController {
 	public void LogOut(HttpServletResponse resp, HttpSession session){
 		session.invalidate();
 	}
+	
+	
+	
+	
 	
 	
 	 @RequestMapping(value="/LoginCheck", method = RequestMethod.POST)

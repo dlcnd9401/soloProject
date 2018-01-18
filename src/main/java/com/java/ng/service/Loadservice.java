@@ -54,5 +54,13 @@ public class Loadservice implements Loadserviceinterface {
 		
 		return result;
 	}
+
+	@Override
+	public HashMap<String, Object> kindList(HashMap<String, Object> param) {
+		result = new HashMap<String, Object>();
+		bean = new DaoBean("SelectList", ns+".kindList", param);
+		result.put("list", di.dao(bean));
+		return result;
+	}
 	
 }

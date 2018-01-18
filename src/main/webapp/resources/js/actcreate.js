@@ -20,7 +20,24 @@ app.controller("actcreate", function($rootScope, $scope,$http,$q,FileService){
 			img:""
 	}
 	}
-		
+	
+
+/*	select box */
+
+		$scope.fieldTable = [{
+		  title: "장르"}, {title: "판타지" }, {title: "무협"},{title: "역사"}, {title: "로맨스"},
+		  {title: "로맨스 판타지"}, {title: "스릴러"}, {title: "문학"},{title: "기타"}];
+
+		 $scope.selected = $scope.fieldTable[0];
+
+		$scope.hasChanged = function() {
+			  $rootScope.catelist.type = $scope.selected.title;
+			  
+		}
+
+	
+	
+	
 	 $rootScope.cateinsert= function(){
      	 console.log("확인 : ", $rootScope.catelist);
      	 if($rootScope.catelist.img==""||$rootScope.catelist.introduce==""||$rootScope.catelist.type==""||$rootScope.catelist.title==""){

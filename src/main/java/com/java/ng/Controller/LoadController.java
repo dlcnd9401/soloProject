@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.java.ng.service.Loadserviceinterface;
-import com.java.ng.service.userserviceinterface;
 import com.java.ng.util.HttpUtil;
 
 @Controller
@@ -32,4 +31,9 @@ public class LoadController {
 		return HttpUtil.returnJson(lsi.newActor(HttpUtil.paramMap(req)));
 	}
 	
+	/* select box Load */
+	@RequestMapping(value = "/KindList", method = RequestMethod.POST)
+	public ModelAndView kindList(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.kindList(HttpUtil.paramMap(req)));
+	}
 	}

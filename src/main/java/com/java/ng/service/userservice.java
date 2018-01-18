@@ -27,14 +27,42 @@ public class userservice implements userserviceinterface {
 		chk = (HashMap<String, Object>) di.dao(bean);
 		
 		if(!(chk==null)){
-			
 			if(chk.get("pw").equals(param.get("pw"))){
 				result = new HashMap<String,Object>();
 				bean = new DaoBean("SelectOne", ns+".login", param);
 				
 				result = (HashMap<String, Object>) di.dao(bean);
 				result.put("LoginChecked", 1);
-				return result;
+				
+				
+				/* 유저 권한 코드 자동 업데이트*/
+				chk = new HashMap<String,Object>();
+				bean = new DaoBean("SelectOne", ns+".promotion",param);
+				chk = (HashMap<String, Object>) di.dao(bean);
+					
+				
+				if(!(chk==null)){
+					System.out.println("등업 시스템 구동 ");
+					param = new HashMap<String,Object>();
+					param.put("no",  chk.get("no"));
+					param.put("id",  chk.get("id"));
+					
+					/* 유저 권한 , 카테고리 권한, 카테고리 하위 권한. */
+					bean = new DaoBean("Update", ns+".autoauth", param);
+					result.put("등업", di.dao(bean));
+					
+					bean = new DaoBean("Update", ns+".autocategory", param);
+					result.put("category", di.dao(bean));
+					
+					bean = new DaoBean("Update", ns+".autonovel", param);
+					result.put("Novel", di.dao(bean));
+					
+					result.put("auto", 1);
+					System.out.println("auth 찿기 " + result);
+					return result;
+				}else{
+					return result;
+				}
 			}else{
 				result = new HashMap<String,Object>();
 				result.put("LoginChecked" , 0);
@@ -72,5 +100,12 @@ public class userservice implements userserviceinterface {
 		return result;
 		}
 	}
+
+
+
+
+
+
+
 }
 

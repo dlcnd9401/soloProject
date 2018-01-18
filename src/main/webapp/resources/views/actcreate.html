@@ -11,8 +11,10 @@
 	    <input type="text" class="form-control" data-ng-model="catelist.title" name="title" placeholder="작품명을 입력하세요">
 	  </div>
      <div class="form-group">
-	    <label for="type">작품 종류</label>
-	    <input type="text" class="form-control" name="type" data-ng-model="catelist.type" placeholder="작품종류를 입력하세요">
+	  	<label>작품 종류 :</label> 
+	<select data-ng-options="item.title for item in fieldTable" data-ng-model="selected" data-ng-change="hasChanged()">
+  </select>
+	    <input type="text" class="form-control" name="type" data-ng-model="catelist.type" placeholder="작품종류를 선택하세요!" value="catelist.type" readonly="readonly">
 	  </div>
       <div class="form-group">
 	    <label for="introduce">작품 소개</label>
