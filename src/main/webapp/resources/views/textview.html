@@ -1,4 +1,4 @@
-<section>
+ <section>
     <div class ="board_big_box">
         <div class ="textview_head">
             <p> {{tvdata.stitle}} <span style="color:darkseagreen;font-size:0.9em">/ {{tvdata.id}}</span></p>
@@ -10,7 +10,6 @@
         <div class ="textview_box">
         <div class ="view_box">
         {{tvdata.contents}}
-        
         </div>
             
             
@@ -34,9 +33,9 @@
        
        <form data-ng-submit="replyinsert()" data-ng-if="LoginStatus==1">
                 <div class ="textview_input">     
-        <p >Comments : <input type="text" data-ng-model="replyindex.req_contents" name="req_contents" placeholder ="댓글을 입력하세요." style="margin-top:1vh; width:85vw;"><button type="submit" style="width:5.5vw;margin-left:1.5vw;"> 작성 </button> </p>
+        <p >Comments : <input type="text" data-ng-model="insertRow.rep_contents" name="req_contents" placeholder ="댓글을 입력하세요." style="margin-top:1vh; width:85vw;"><button type="submit" style="width:5.5vw;margin-left:1.5vw;"> 작성 </button> </p>
         </div>
         </form>
 	  
     </div>
-   </section>
+   </section>  

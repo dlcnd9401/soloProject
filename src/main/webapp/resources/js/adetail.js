@@ -104,23 +104,24 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 	
 	
 	
-	
-	$rootScope.viewdetailparam = function(viewdetailno){
-		console.log(viewdetailno.no);
-		
-		$rootScope.webview = 
-			{title:viewdetailno.title,
-			 sort:viewdetailno.sort,
-			 stitle:viewdetailno.stitle,
-			 no:viewdetailno.no
-			}
+	/**/
+	$rootScope.viewdetailparam = function(sortparam){
+		console.log(sortparam);
+		$rootScope.webview = {
+				no:sortparam
+		};
 		
 		$rootScope.click_up();
+		location.href="#!/textview/"+ sortparam;
 		
-		console.log("param 확인 ");
-		console.log($rootScope.webview);
-		console.log($rootScope.webview.title);
-		console.log($rootScope.webview.sort);
+		
+		/*$rootScope.webview = 
+		{title:viewdetailno.title,
+		 sort:viewdetailno.sort,
+		 stitle:viewdetailno.stitle,
+		 no:viewdetailno.no
+		}*/
+
 	};
 	
 	

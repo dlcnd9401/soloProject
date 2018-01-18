@@ -20,7 +20,7 @@ app.config(function($routeProvider){
 	}).when("/login", {
 		templateUrl : "resources/views/Login.html",
 		controller : "login"
-	}).when("/textview", {
+	}).when("/textview/:sortparam", {
 		templateUrl : "resources/views/textview.html",
 		controller : "textview"
 	}).when("/story/:storyauth", {
@@ -133,7 +133,6 @@ $rootScope.prefmove = function(param_userid){
 		 		console.log("로그인 정보");
 	 			 console.log($rootScope.user);
 	 			 $rootScope.promotionCheck=$rootScope.user.auto; 
-	 			 console.log($rootScope.promotionCheck);
 		 		}
 	 	   },function(userdata){
 	 	   });

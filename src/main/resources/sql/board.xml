@@ -60,7 +60,7 @@
 	</select>
 	
 	<insert id="replyinsert" parameterType="hashmap">
-		insert into reply (rep_contents,rep_id,nv_repno,title) values (#{req_contents}, #{req_id}, #{nv_repno},#{title})
+		insert into reply (rep_contents,rep_id,nv_repno,title) values (#{rep_contents}, #{rep_id}, #{nv_repno},#{title})
 	</insert>
 	
 	<select id ="boarddetail_reply" resultType="hashmap" parameterType="hashmap">

@@ -21,4 +21,15 @@ public class TextViewController {
 	@Autowired
 	TextViewServiceInterface tvsi;
 	
+	
+	@RequestMapping(value="/textview", method = RequestMethod.POST)
+	public ModelAndView textview(HttpServletRequest req){
+		return HttpUtil.returnJson(tvsi.Textview(HttpUtil.paramMap(req)));
 	}
+	
+	@RequestMapping(value="/TextMove", method = RequestMethod.POST)
+	public ModelAndView textmove(HttpServletRequest req){
+		return HttpUtil.returnJson(tvsi.TVMOVE(HttpUtil.paramMap(req)));
+	}
+	
+}

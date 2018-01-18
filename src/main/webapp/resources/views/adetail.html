@@ -38,7 +38,7 @@
   <tbody id ="trcheck">
     <tr data-ng-repeat="rows in actdetail">
       <td style ="color:darkgrey">{{rows.sort}}</td>
-      <th scope="row"><a href ="#!/textview" data-ng-click="viewdetailparam(rows)">{{rows.stitle}}</a></th>
+      <th scope="row"><a data-ng-click="viewdetailparam(rows.no)">{{rows.stitle}}</a></th>
       <td>{{rows.ndata}}</td>
       <td>{{rows.nclick}}</td>
       
