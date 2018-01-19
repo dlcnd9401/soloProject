@@ -104,28 +104,21 @@ app.controller("adetail", function($rootScope, $scope,$http,$routeParams){
 	
 	
 	
-	/**/
+	/*소설 화면으로 이동*/
 	$rootScope.viewdetailparam = function(sortparam){
 		console.log(sortparam);
 		$rootScope.webview = {
 				no:sortparam
 		};
-		
 		$rootScope.click_up();
 		location.href="#!/textview/"+ sortparam;
-		
-		
-		/*$rootScope.webview = 
-		{title:viewdetailno.title,
-		 sort:viewdetailno.sort,
-		 stitle:viewdetailno.stitle,
-		 no:viewdetailno.no
-		}*/
-
 	};
 	
-	
-	
+	/*소설 입력 화면으로 이동*/
+	$rootScope.awritemove = function(cate_title){
+		
+		location.href = "#!/awrite/" + cate_title;
+	}
 	
 	
 });

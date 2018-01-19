@@ -1,11 +1,26 @@
-<link rel ="stylesheet" href="home.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/earlyaccess/nanumpenscript.css" rel ="stylesheet">
-<div>
-
-
-
+<section>
+<div class ="story_box">
+<div class ="story_box_head">
+{{title}}
 </div>
+<div class ="Qwrite">
+    <div>
+        <form name="writeForm" data-ng-submit="Novelinsert()" >
+        <br>
+        <div class ="writeA">
+        <!-- <span>ID : </span> <br><br> -->  
+        <span> 소제목 : </span><br>  <br>
+        <span>내용 : </span>
+        </div>
+        <div class ="writeB">  
+        
+        <!-- <input type="text" name="id" readonly="readonly" data-ng-model="Tywrite.id" value="user.id"><br><br> -->
+        <input type="text" name="title" data-ng-model="insertBowl.stitle"><br><br>
+        <textarea style="width: 80vw;height: 20vh"name ="contents" data-ng-model="insertBowl.contents"></textarea>
+            </div>
+    <button type="submit" style="float:right; margin-right: 3vw;">작성</button>
+    </form>
+    </div>
+    </div>
+</div>
+</section>

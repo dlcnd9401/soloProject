@@ -1,5 +1,5 @@
 
-var app = angular.module("Charm", ["ngRoute","Home","Board","Boarddetail","Login","SignUp","Textview","Actcreate","Story","Adetail","Qwrite","Pref"]);
+var app = angular.module("Charm", ["ngRoute","Home","Board","Boarddetail","Login","SignUp","Textview","Actcreate","Story","Adetail","Qwrite","Pref","Awrite"]);
 
 app.config(function($routeProvider){
 	$routeProvider.when("/home", {
@@ -29,12 +29,15 @@ app.config(function($routeProvider){
 	}).when("/adetail/:param", {
 		templateUrl : "resources/views/adetail.html",
 		controller : "adetail"
-	}).when("/qwrite", {
+	}).when("/qwrite/:insertauth", {
 		templateUrl : "resources/views/Qwrite.html",
 		controller : "qwrite"
 	}).when("/pref", {
 		templateUrl : "resources/views/pref.html",
 		controller : "pref"
+	}).when("/awrite/:awriteparams", {
+		templateUrl : "resources/views/Awrite.html",
+		controller : "awrite"
 	}).otherwise({redirectTo: "/home"});
 });
 

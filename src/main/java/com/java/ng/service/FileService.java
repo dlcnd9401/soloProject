@@ -8,15 +8,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.java.ng.Dao.DaoInterface;
+import com.java.ng.bean.DaoBean;
+
 @Service
 public class FileService implements FileServiceInterface {
-
+	
 	// 전역변수 선언
 	private HashMap<String, Object> resultMap;
 	private List<HashMap<String, Object>> fileList;
+	
+	@Autowired
+	DaoInterface di;
+	
+	private final String ns = "board";
+	private HashMap<String, Object> result;
+	private HashMap<String,Object> chk;
+	private DaoBean bean;
 	
 	@Override
 	public HashMap<String, Object> fileOutput(MultipartFile[] file, HttpServletRequest req) {
@@ -31,7 +44,9 @@ public class FileService implements FileServiceInterface {
 
 			path = "D:/GIT/soloProject/src/main/webapp/" + path2;
 //			path = req.getSession().getServletContext().getRealPath("/") + path2;
-			System.out.println(path);
+			
+			String img = path + name;
+			System.out.println(img);
 			
 			// 파일 저장 부분
 			try {
@@ -57,10 +72,27 @@ public class FileService implements FileServiceInterface {
 				map.put("name", name);
 				fileList.add(map);
 				
+				
+				//insert 문 실행 
+				HashMap<String,Object> Data = new HashMap<String,Object>();
+				
+				Data.put("id", req.getParameter("id"));
+				Data.put("title", req.getParameter("title"));
+				Data.put("type", req.getParameter("type"));
+				Data.put("auth", req.getParameter("auth"));
+				Data.put("introduce", req.getParameter("introduce"));
+				Data.put("img", img);
+				
+				ctInsert(Data);
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+		
+		
+		
+		
 		
 		// 저장 내용 리턴 받기 위해 담기
 		resultMap = new HashMap<String, Object>();
@@ -68,5 +100,15 @@ public class FileService implements FileServiceInterface {
 		
 		return resultMap;
 	}
+	
+	@Override
+	public HashMap<String, Object> ctInsert(HashMap<String, Object> param) {
+		result = new HashMap<String, Object>();
+		bean = new DaoBean("Insert", ns+".catewrite", param);
+		result.put("status", di.dao(bean));
+		return result;
+	}
+	
+	
 
 }

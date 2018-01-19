@@ -14,4 +14,12 @@
 		select no from novel where title=#{title} and sort = #{sort};
 	</select>
 	
+	<insert id = "Novel_insert" parameterType = "hashmap">
+		insert into novel (title,stitle,contents,id,auth,sort) values 
+		(#{title},#{stitle},#{contents},#{id},#{auth},#{sort})
+	</insert>
+	<select id ="Novel_insert_data_params" parameterType="hashmap" resultType ="hashmap">
+		select sort,id from novel where title = #{title} order by sort desc limit 1; 
+	</select>
+	
 </mapper>

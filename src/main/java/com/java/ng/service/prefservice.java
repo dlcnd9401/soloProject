@@ -23,6 +23,7 @@ public class prefservice implements PrefserviceInterface {
 	
 	@Override
 	public HashMap<String, Object> prefcheck(HashMap<String, Object> param) {
+		
 		result = new HashMap<String, Object>();
 		bean = new DaoBean("SelectOne", ns+".prefchecked", param);
 		

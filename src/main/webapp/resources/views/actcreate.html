@@ -1,11 +1,7 @@
 <section>
-<div class ="container"> 표지 등록
-			<form name ="fileForm" data-ng-submit="submit()" >
-				<input type ="file" name ="file" data-file="file" style="float:left;"><input type ="submit" value ="업로드" style="float:left;">
-			</form>
-		</div>
+
 <div class="container" >
-	<form data-ng-submit="cateinsert()">
+	<form data-ng-submit="submit()">
 	  <div class="form-group">
 	    <label for="title">작품명</label>
 	    <input type="text" class="form-control" data-ng-model="catelist.title" name="title" placeholder="작품명을 입력하세요">
@@ -15,6 +11,10 @@
 	<select data-ng-options="item.title for item in fieldTable" data-ng-model="selected" data-ng-change="hasChanged()">
   </select>
 	    <input type="text" class="form-control" name="type" data-ng-model="catelist.type" placeholder="작품종류를 선택하세요!" value="catelist.type" readonly="readonly">
+	  </div>
+	  <div class ="from-group">
+	  <label for ="img">표지 이미지 등록</label>
+	  	<input type ="file" name ="file" data-file="file">
 	  </div>
       <div class="form-group">
 	    <label for="introduce">작품 소개</label>

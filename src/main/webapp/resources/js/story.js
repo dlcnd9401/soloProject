@@ -22,8 +22,8 @@ app.controller("story", function($rootScope, $scope,$http,$routeParams){
 	
 	$rootScope.story();
 
-	$scope.fieldTable = [{
-		  title: "전체"}, {title: "판타지" }, {title: "무협"},{title: "역사"}, {title: "로맨스"},
+	$scope.fieldTable = [
+		{title: "전체"}, {title: "판타지" }, {title: "무협"},{title: "역사"}, {title: "로맨스"},
 		  {title: "로맨스 판타지"}, {title: "스릴러"}, {title: "문학"},{title: "기타"}];
 
 	   $scope.selected = $scope.fieldTable[0];

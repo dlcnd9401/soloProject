@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
 	<select id="boardlist" resultType="hashmap" parameterType="hashmap">
-		select no,title,contents,id,click,type,DATE_FORMAT(reg_date, '%Y-%m-%d') as
+		select no,title,contents,id,click,type,DATE_FORMAT(reg_date, '%Y-%m-%d %T') as
 		 reg_date,auth from list where del_yn="N" and type=#{type} order by reg_date desc;
 	</select>
 	
@@ -33,7 +33,7 @@
 	</select>
 	
 	<select id ="replylist" resultType="hashmap" parameterType="hashmap">
-	select r.rep_contents,r.rep_id,DATE_FORMAT(r.rep_date, '%Y-%m-%d') as date from reply as r inner join novel as n
+	select r.rep_contents,r.rep_id,DATE_FORMAT(r.rep_date, '%Y-%m-%d %T') as date from reply as r inner join novel as n
  		on(n.stitle=r.title) where nv_repno =#{sort} and r.del_yn = 'N' and n.title = #{title} order by r.no desc;	</select>
 	 		
  			
@@ -50,8 +50,6 @@
 	<insert id="catewrite" parameterType="hashmap">
 	insert into category (id,title,type,auth,introduce,img) values (#{id},#{title},#{type},#{auth},#{introduce},#{img});
 	</insert>
-	
-	
 	
 	
 	<select id ="preflist" resultType="hashmap" parameterType="hashmap">

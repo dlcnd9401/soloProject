@@ -37,10 +37,10 @@ app.controller("actcreate", function($rootScope, $scope,$http,$q,FileService){
 
 	
 	
-	
+	/*	$rootScope.catelist.img==""||
 	 $rootScope.cateinsert= function(){
      	 console.log("확인 : ", $rootScope.catelist);
-     	 if($rootScope.catelist.img==""||$rootScope.catelist.introduce==""||$rootScope.catelist.type==""||$rootScope.catelist.title==""){
+     	 if($rootScope.catelist.introduce==""||$rootScope.catelist.type==""||$rootScope.catelist.title==""){
      		 	alert("정보를 전부 입력하세요");
      		 	$scope.catelist_reset();
      	 }else{
@@ -62,23 +62,36 @@ app.controller("actcreate", function($rootScope, $scope,$http,$q,FileService){
           	 
      	 }
      	 
-      }
+      }*/
 	
 	$rootScope.submit = function(){ 
 		console.log("submit()!", $scope.file);
 		
 		var formData = new FormData();
 		
-		for( var i=0; i<$scope.file.length; i++){ // 다중 파일 작업을 위해 반복문
-			formData.append("file",$scope.file[i]); // 리스트가 아니라 단일객체로 보내야 함.
-		}
-		formData.append("name", $scope.name);
-		FileService.async("fileupload",formData,undefined)
-		.then(function(){
-			var result = FileService.data();
-			$rootScope.catelist.img = result.data.Rows[0].path + result.data.Rows[0].name;
-			console.log("img 확인 :" +$rootScope.catelist.img);
-		});	
+		if($scope.file !=undefined){
+			if($rootScope.catelist.introduce==""||$rootScope.catelist.type==""||$rootScope.catelist.title==""){
+     		 	alert("정보를 전부 입력하세요");
+     		 	$scope.catelist_reset();
+     	 }else{
+     		for( var i=0; i<$scope.file.length; i++){ // 다중 파일 작업을 위해 반복문
+    			formData.append("file",$scope.file[i]); // 리스트가 아니라 단일객체로 보내야 함.
+    		}
+    		formData.append("name", $scope.name);
+    		
+    		
+    		console.log($scope.catelist);
+    		FileService.async("fileupload",formData,$rootScope.catelist)
+    		.then(function(){
+    			var result = FileService.data();
+    			$rootScope.catelist.img = result.data.Rows[0].path + result.data.Rows[0].name;
+    			console.log("img 확인 :" +$rootScope.catelist.img);
+    		});
+     	 }
+			
+	}else{
+		alert("이미지 파일이 없습니다.");
+	}
 	}
 });
 

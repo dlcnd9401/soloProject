@@ -20,7 +20,7 @@ public class TextViewService implements TextViewServiceInterface {
 	private HashMap<String, Object> result;
 	private DaoBean bean;
 	private HashMap<String, Object> chk;
-	
+	private int sort = 1;
 	
 	
 	@Override
@@ -68,6 +68,56 @@ public class TextViewService implements TextViewServiceInterface {
 			return result;
 		}else{
 			result.put("stat", 2);
+			return result;
+		}
+	}
+
+	@Override
+	public HashMap<String, Object> TextInsert(HashMap<String, Object> param){
+		result = new HashMap<String,Object>();
+		chk = new HashMap<String,Object>();
+		
+		bean = new DaoBean("SelectOne",ns+".Novel_insert_data_params",param);
+		chk = (HashMap<String, Object>)di.dao(bean);
+		
+		if(!(chk == null)){
+			
+			sort = Integer.parseInt(chk.get("sort").toString()) + 1;
+			param.put("sort",sort);
+			
+			bean = new DaoBean("Insert",ns+".Novel_insert",param);
+			
+			result.put("Stat", di.dao(bean));
+			result.put("sort", param.get("sort"));
+			
+			return result;
+		}else{
+			param.put("sort", sort);
+			
+			bean = new DaoBean("Insert",ns+".Novel_insert",param);
+			result.put("Stat", di.dao(bean));
+			result.put("sort", param.get("sort"));
+			
+			return result;
+		}
+		
+		
+	}
+	
+	
+	@Override
+	public HashMap<String, Object> Insert_IDCheck(HashMap<String, Object> param){
+		result = new HashMap<String,Object>();
+		chk = new HashMap<String,Object>();
+		
+		bean = new DaoBean("SelectOne",ns+".Novel_insert_data_params",param);
+		chk = (HashMap<String, Object>)di.dao(bean);
+		System.out.println("chk" + chk);
+		if(!(chk == null)){
+			result.put("Name", chk.get("id"));
+			return result;
+		}else{
+			result.put("status",0);
 			return result;
 		}
 	}

@@ -32,4 +32,13 @@ public class TextViewController {
 		return HttpUtil.returnJson(tvsi.TVMOVE(HttpUtil.paramMap(req)));
 	}
 	
+	@RequestMapping(value="/Novel_insert", method = RequestMethod.POST)
+	public ModelAndView Novel_insert(HttpServletRequest req){
+		return HttpUtil.returnJson(tvsi.TextInsert(HttpUtil.paramMap(req)));
+	}
+	@RequestMapping(value="/Insert_IDCheck", method = RequestMethod.POST)
+	public ModelAndView Insert_IDCheck(HttpServletRequest req){
+		return HttpUtil.returnJson(tvsi.Insert_IDCheck(HttpUtil.paramMap(req)));
+	}
+	
 }
