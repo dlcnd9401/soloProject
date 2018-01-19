@@ -35,6 +35,16 @@ public class Loadservice implements Loadserviceinterface {
 		bean = new DaoBean("SelectList", ns+".notice", param);
 		result.put("free", di.dao(bean));
 		
+		bean = new DaoBean("SelectList",ns+".prefList",param);
+		result.put("pref", di.dao(bean));
+		
+		bean = new DaoBean("SelectList",ns+".clickList",param);
+		result.put("click", di.dao(bean));
+		
+		
+		
+		
+		
 		
 		
 		return result;

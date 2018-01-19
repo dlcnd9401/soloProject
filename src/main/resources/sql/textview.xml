@@ -21,5 +21,9 @@
 	<select id ="Novel_insert_data_params" parameterType="hashmap" resultType ="hashmap">
 		select sort,id from novel where title = #{title} order by sort desc limit 1; 
 	</select>
+	<update id ="Novel_Category_date_refresh" parameterType="hashmap">
+		update category set reg_date=now() where title =#{title}
+	</update>
+	
 	
 </mapper>

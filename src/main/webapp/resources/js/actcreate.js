@@ -37,32 +37,6 @@ app.controller("actcreate", function($rootScope, $scope,$http,$q,FileService){
 
 	
 	
-	/*	$rootScope.catelist.img==""||
-	 $rootScope.cateinsert= function(){
-     	 console.log("확인 : ", $rootScope.catelist);
-     	 if($rootScope.catelist.introduce==""||$rootScope.catelist.type==""||$rootScope.catelist.title==""){
-     		 	alert("정보를 전부 입력하세요");
-     		 	$scope.catelist_reset();
-     	 }else{
-     		$http.post("ActCreate","",{params: $rootScope.catelist})
-        	   .then(function(result){
-        		  console.log(result);
-        		  $scope.catechk = result.data.cate_Title_Chk;
-        		  if($scope.catechk == 0){
-        			  alert("이미 있는 제목입니다. 다시 입력하세요.");
-        			  $scope.catelist_reset();
-        		  }else{
-        			  alert("작품이 등록되었습니다.");
-        			  location.href="Charm#!/home";
-        			  $scope.catelist_reset();
-        		  }
-        	   },function(result){
-        		   console.log(result);
-        	   });
-          	 
-     	 }
-     	 
-      }*/
 	
 	$rootScope.submit = function(){ 
 		console.log("submit()!", $scope.file);

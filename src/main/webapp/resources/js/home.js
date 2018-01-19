@@ -10,6 +10,8 @@ app.controller("home", function($rootScope, $scope,$http,$routeParams){
 			$rootScope.noticeList = result.data.notice
 			$rootScope.novelList = result.data.novel
 			$rootScope.freeList = result.data.free
+			$rootScope.PrefList = result.data.pref
+			$rootScope.ClickList = result.data.click
 				
 		},function(result){
 		})
@@ -34,8 +36,6 @@ app.controller("home", function($rootScope, $scope,$http,$routeParams){
 	$scope.titleclick1 = function(param){
 		console.log(param);
 		location.href="#!/adetail/" + param;
-		/*$rootScope.titlechk=param;
-		codasdsansole.log($rootScope.titlechk);*/
 	}
 });
 

@@ -81,7 +81,6 @@ public class TextViewService implements TextViewServiceInterface {
 		chk = (HashMap<String, Object>)di.dao(bean);
 		
 		if(!(chk == null)){
-			
 			sort = Integer.parseInt(chk.get("sort").toString()) + 1;
 			param.put("sort",sort);
 			
@@ -89,6 +88,9 @@ public class TextViewService implements TextViewServiceInterface {
 			
 			result.put("Stat", di.dao(bean));
 			result.put("sort", param.get("sort"));
+			
+			bean =new DaoBean("Update",ns+".Novel_Category_date_refresh",param);
+			result.put("Date_Update",di.dao(bean));
 			
 			return result;
 		}else{

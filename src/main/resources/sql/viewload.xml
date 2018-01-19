@@ -16,4 +16,11 @@
 	<select id ="kindList" parameterType="hashmap" resultType ="hashmap">
 		select * from category where auth = #{auth} and type =#{type}
 	</select>
+	
+		<select id ="clickList" parameterType="hashmap" resultType ="hashmap">
+		select * from category order by click desc limit 7
+	</select>
+		<select id ="prefList" parameterType="hashmap" resultType ="hashmap">
+		select * from category order by pref desc limit 7
+	</select>
 </mapper>

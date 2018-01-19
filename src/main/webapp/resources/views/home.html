@@ -32,29 +32,17 @@
           
           </div>
                         <div class ="secbox30">
-                <div class ="sec_in_box"> <p><a href="">▷ 일일 BEST </a></p>
+                <div class ="sec_in_box"> <p><a href="">▷조회수 랭킹! </a></p>
                 <ul>
-                    <li><a href="">1.미사역 초 역세권!</a></li>
-                    <li><a href="">2.투자는 입지다!</a></li>
-                    <li><a href="">3.비트코인 그것을 알고 싶다</a></li>
-                    <li><a href="">4.기묘한 전당포</a></li>
-                    <li><a href="">5.아저씨</a></li>
-                    <li><a href="">6.아가씨</a></li>
-                    <li><a href="">7.ABCDEFG - 알파벳에 대한 고찰</a></li>
+                	<li data-ng-repeat="rows in ClickList"><a data-ng-click="titleclick1(rows.no)">{{rows.title}}<span style="float:right;color:gray;">누적 : {{rows.click}} 회</span></a></li>
                     </ul>
                 </div>
             
             
 
-                <div class ="sec_in_box"> <p><a href="">▷ 주간 BEST</a> </p>
+                <div class ="sec_in_box"> <p><a href="">▷ 선호작 랭킹!</a> </p>
                 <ul>
-                    <li><a href="">1.미사역 초 역세권!</a></li>
-                    <li><a href="">2.투자는 입지다!</a></li>
-                    <li><a href="">3.비트코인 그것을 알고 싶다</a></li>
-                    <li><a href="">4.기묘한 전당포</a></li>
-                    <li><a href="">5.아저씨</a></li>
-                    <li><a href="">6.아가씨</a></li>
-                    <li><a href="">7.ABCDEFG - 알파벳에 대한 고찰</a></li>
+					<li data-ng-repeat="rows in PrefList"><a data-ng-click="titleclick1(rows.no)">{{rows.title}}<span style="float:right;color:gray;">누적 : {{rows.pref}} 개</span></a></li>	       
 
                     </ul>
                 </div>
