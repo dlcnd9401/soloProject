@@ -31,6 +31,11 @@ public class Loadservice implements Loadserviceinterface {
 		result.put("novel", di.dao(bean));
 		
 		param = new HashMap<String,Object>();
+		param.put("type", "문의");
+		bean = new DaoBean("SelectList", ns+".notice", param);
+		result.put("Quest", di.dao(bean));
+		
+		param = new HashMap<String,Object>();
 		param.put("type", "자유");
 		bean = new DaoBean("SelectList", ns+".notice", param);
 		result.put("free", di.dao(bean));
@@ -70,6 +75,14 @@ public class Loadservice implements Loadserviceinterface {
 		result = new HashMap<String, Object>();
 		bean = new DaoBean("SelectList", ns+".kindList", param);
 		result.put("list", di.dao(bean));
+		return result;
+	}
+
+	@Override
+	public HashMap<String, Object> deleted(HashMap<String, Object> param) {
+		result = new HashMap<String, Object>();
+		bean = new DaoBean("Update", ns+".boarddeleted", param);
+		result.put("del_Y", di.dao(bean));
 		return result;
 	}
 	

@@ -2,6 +2,9 @@
 var app = angular.module("Login",[]);
 app.controller("login", function($rootScope, $scope,$http){
 
+	$scope.signmove = function(){
+		location.href="#!/signup";
+	}
 	
 	
     $rootScope.login= function(){

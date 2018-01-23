@@ -174,7 +174,9 @@ footer{
     font-size:10px;
 }
 .ft_box{
-
+	width:100vw;
+	min-height: 10vh;
+	float:left;
 }
 
 /* 작가 / 일반 연재 */
@@ -393,6 +395,15 @@ height: 39vh;
 
 /* 작품 디테일 화면 */
 .textview_head{
+    width:96vw;
+    height: 6vh;
+    margin: 1vh 1vw;
+    padding: 1vh 0;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.textview_head2{
     width:98vw;
     height: 6vh;
     margin: 1vh 1vw;
@@ -400,6 +411,7 @@ height: 39vh;
     border: 1px solid black;
     text-align: center;
 }
+
 .textview_head p{
     font-size:1.5em;
 }
@@ -419,17 +431,18 @@ height: 39vh;
     background-color: #deeeec;
     min-height: 36vh;
     height: auto;
+    font-size:25px;
 }
 .view_box p{
-    font-size:1.5em;
+    font-size:25px;
 }
 
 .textview_comments{
-    width:98vw;
+     width:96vw; 
     min-height: 15vh;
     height: auto;
     margin: 1vh 1vw;
-    padding: 1vh 1vw;
+    /* padding: 1vh 1vw; */
     border: 1px solid black;
     text-align: left;
 }
@@ -445,7 +458,7 @@ height: 39vh;
 }
 
 .textview_input{
-    width:98vw;
+    /* width:98vw; */
     min-height: 5vh;
     height: auto;
     margin: 1vh 1vw;
@@ -456,6 +469,21 @@ height: 39vh;
     margin-left: 1vw;
     width:100%;
 }
+
+.textview_input2{
+    width:98vw; 
+    min-height: 5vh;
+    height: auto;
+	margin: 0.5vh 1vw;
+    float:left;
+
+}
+.textview_input2 p{
+    margin-left: 1vw;
+    width:100%;
+}
+
+
 .view_reply{
     margin: 0;
     padding: 0;

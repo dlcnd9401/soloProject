@@ -121,4 +121,23 @@ public class prefservice implements PrefserviceInterface {
 		return result;
 	}
 
+
+
+
+	@Override
+	public HashMap<String, Object> userpref_update(HashMap<String, Object> param) {
+		result = new HashMap<String, Object>();
+		bean = new DaoBean("Update", ns+".prefpageupdate", param);
+		result.put("del_Y", di.dao(bean));
+		
+		bean = new DaoBean("Update", ns+".prefDBupdate", param);
+		result.put("Update", di.dao(bean));
+		
+		return result;
+	}
+
+
+
+
+
 }

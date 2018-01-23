@@ -7,7 +7,7 @@
   </select>
   		</div>
         <p> Author / Amateur Story</p></div>
-    <div class ="story_inbox" data-ng-repeat="rows in boardstory">
+    <div class ="story_inbox" dir-paginate="rows in boardstory | itemsPerPage:12">
     <a data-ng-click="titleclick(rows.no)">
     <p>{{rows.title}}</p>
     <div class="story_inbox_img">
@@ -18,5 +18,10 @@
     <p>장르 : {{rows.type}}</p>
     </a>
     </div>
+           <dir-pagination-controls style="margin: 10vh 45%"
+       max-size="12"
+       direction-links="true"
+       boundary-links="true" >
+    </dir-pagination-controls>
 </div>
 </section>

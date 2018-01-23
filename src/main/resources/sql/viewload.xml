@@ -23,4 +23,8 @@
 		<select id ="prefList" parameterType="hashmap" resultType ="hashmap">
 		select * from category order by pref desc limit 7
 	</select>
+	
+	<update id = "boarddeleted" parameterType ="hashmap">
+		update list set del_yn ='Y' where no = #{no} 
+	</update>
 </mapper>

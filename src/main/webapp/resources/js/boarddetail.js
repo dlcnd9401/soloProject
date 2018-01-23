@@ -32,6 +32,7 @@ app.controller("boarddetail", function($rootScope, $scope,$http,$routeParams){
 				console.log("성공");
 				console.log(result);
 				$rootScope.detailview=result.data.list_data;
+				console.log($rootScope.detailview);
 				$rootScope.reply_data = result.data.reply;
 				$rootScope.boardlistclick_up();
 				console.log($scope.reply_data);
@@ -72,5 +73,18 @@ app.controller("boarddetail", function($rootScope, $scope,$http,$routeParams){
 	    		   console.log(result);
 	    	   });
 	};
+	
+	
+	$scope.boarddel =function(){
+	  	 $http.post("Del_Y","",{params: {no:$rootScope.detailview.no}})
+      	 .then(function(result){
+    		   console.log("성공");
+    		   alert("삭제 완료!");
+    		   location.href = "#!/board/" + $rootScope.detailview.type;
+    		  },function(result){
+    		   console.log(result);
+    	   });
+		
+	}
 	  
 });

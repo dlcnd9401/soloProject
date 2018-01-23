@@ -1,6 +1,6 @@
  <section>
     <div class ="board_big_box">
-        <div class ="textview_head">
+        <div class ="textview_head2">
             <p> {{tvdata.stitle}} <span style="color:darkseagreen;font-size:0.9em">/ {{tvdata.id}}</span></p>
         </div>
         <div style="width:98vw;margin: 0 1vw;">
@@ -8,12 +8,7 @@
         <input type="text" readonly="readonly" style="width: 3vw;margin: 0; text-align: center;" value ="{{tvdata.sort}}"> <button type="button" data-ng-click=txviewright(tvdata) style="margin: 0 1vw 0 0vw;">▶</button>
             </div>
         <div class ="textview_box">
-        <div class ="view_box">
-        {{tvdata.contents}}
-        </div>
-            
-            
-        </div>
+        <div class ="view_box" id = "contents" style ="word-break:break;" data-ng-bind-html="tvdata.contents"></div>
             <div class ="textview_head" style="height: 5vh;">
             <p style ="float:left; margin-left:2vw">Comments</p>
         </div>
@@ -33,7 +28,8 @@
        
        <form data-ng-submit="replyinsert()" data-ng-if="LoginStatus==1">
                 <div class ="textview_input">     
-        <p >Comments : <input type="text" data-ng-model="insertRow.rep_contents" name="req_contents" placeholder ="댓글을 입력하세요." style="margin-top:1vh; width:85vw;"><button type="submit" style="width:5.5vw;margin-left:1.5vw;"> 작성 </button> </p>
+        <p style="margin:0; width:85vw; float:left;margin:0">Comments : <input type="text" data-ng-model="insertRow.rep_contents" name="req_contents" placeholder ="댓글을 입력하세요." style="margin-top:1vh; width:80vw;"></p>
+        <button type="submit" style="width:5.5vw;float:right;"> 작성 </button>
         </div>
         </form>
 	  

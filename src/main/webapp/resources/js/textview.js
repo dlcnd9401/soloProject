@@ -4,7 +4,11 @@ var app = angular.module("Textview",[]);
 app.controller("textview", function($rootScope,$scope,$http,$routeParams){
 	console.log($routeParams.sortparam); // Novel의 NO 값;
 	$scope.NovelNo = $routeParams.sortparam;
-	
+
+/*	$scope.conn = function(){
+		var str = $('#contents').val().replace(/\n/g, "<br>");
+		$scope.tvdata.contents = str;
+	} */
 	
 	
 	$scope.viewpoint = function(){
@@ -12,18 +16,21 @@ app.controller("textview", function($rootScope,$scope,$http,$routeParams){
 		.then(function(result){
 			console.log("성공");
 			console.log(result);
-			
 			$scope.tvdata = result.data.Novel; // Novel data
-			console.log($scope.tvdata);
+			
 			$scope.tvdata_reply = result.data.NovelReply; // reply data
-			$scope.insertRow.title = result.data.Novel.stitle; 
+			$scope.insertRow.stitle = result.data.Novel.stitle;
+			$scope.insertRow.title = result.data.Novel.title;
 			$scope.insertRow.nv_repno = result.data.Novel.sort;
 			console.log($scope.insertRow.nv_repno);
 			console.log($scope.insertRow.title);
+			
 		},function(data){
 			console.log("실패");
 		});	
 	}
+	
+	
 	
 	$scope.viewpoint();
 	
@@ -65,31 +72,36 @@ app.controller("textview", function($rootScope,$scope,$http,$routeParams){
 			rep_contents:"",
 			rep_id:$rootScope.user.id,
 			nv_repno:"",
+			stitle:"",
 			title:""
 	}
 	
 	
 	   $scope.replyinsert= function(){
 		console.log($scope.insertRow);
-	      	 $http.post("Reply_insert","",{params:$scope.insertRow})
+		if($scope.insertRow.rep_contents == ""){
+			alert("댓글을 입력해주세요.");
+		}else{
+			 $http.post("Reply_insert","",{params:$scope.insertRow})
 	    	   .then(function(result){
 	    		   $scope.viewpoint();
 	    		   $scope.insertRow = {
 	    				   rep_contents:"",
 	    					rep_id:$rootScope.user.id,
 	    					nv_repno:"",
-	    					title:""
+	    					title:"",
+	    					stitle:""
 	    		   }
 	    	   },function(result){
 	    		   console.log(result);
 	    	   });
-	      	
+
+		}
+		
+	      		      	
 	};
 
 });	
 
-
-
-	
 
 	

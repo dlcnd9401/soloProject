@@ -16,9 +16,9 @@
     <p>작가 : {{rows.id}}</p>
     <p>조회수 : {{rows.click}} 선호작 : {{rows.pref}}</p>
     <p>소개 : {{rows.introduce}}</p>
-    <p>장르 : {{rows.type}}</p>
+    <p>장르 : {{rows.type}}</p></a>
+    <button type ="button" style = "float:right; margin-right:5vw; margin-top:5vh;" data-ng-click ="prefdeleted(rows.title)">선호작 삭제</button>
         </div>
-        </a>
     </div>
      <dir-pagination-controls style="margin: 10vh 45%"
        max-size="10"

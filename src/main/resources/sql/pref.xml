@@ -35,5 +35,11 @@
 		update category set pref = pref-1 where no =#{catno};
 	</update>
 	
+	<update id ="prefpageupdate" parameterType="hashmap">
+		update pref set del_yn = 'Y' where title = #{title} and id=#{id}
+	</update>
+	<update id ="prefDBupdate" parameterType="hashmap">
+		update category set pref = pref-1 where title = #{title}
+	</update>
 	
 </mapper>

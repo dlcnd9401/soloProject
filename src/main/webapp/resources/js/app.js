@@ -1,5 +1,5 @@
 
-var app = angular.module("Charm", ["ngRoute","Home","Board","Boarddetail","Login","SignUp","Textview","Actcreate","Story","Adetail","Qwrite","Pref","Awrite"]);
+var app = angular.module("Charm", ["ngRoute","ngSanitize","Home","Board","Boarddetail","Login","SignUp","Textview","Actcreate","Story","Adetail","Qwrite","Pref","Awrite"]);
 
 app.config(function($routeProvider){
 	$routeProvider.when("/home", {
@@ -32,7 +32,7 @@ app.config(function($routeProvider){
 	}).when("/qwrite/:insertauth", {
 		templateUrl : "resources/views/Qwrite.html",
 		controller : "qwrite"
-	}).when("/pref", {
+	}).when("/pref/:userid", {
 		templateUrl : "resources/views/pref.html",
 		controller : "pref"
 	}).when("/awrite/:awriteparams", {
@@ -87,6 +87,10 @@ $rootScope.prefmove = function(param_userid){
 	console.log($rootScope.user);
 }
 
+$rootScope.user_pref_id= function(prefparamuser){
+	console.log(prefparamuser);
+	location.href="#!/pref/" + prefparamuser;
+}
 	
 
 	$rootScope.fileUpload = (url, formData, param) =>{

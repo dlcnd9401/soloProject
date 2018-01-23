@@ -36,4 +36,10 @@ public class LoadController {
 	public ModelAndView kindList(HttpServletRequest req){
 		return HttpUtil.returnJson(lsi.kindList(HttpUtil.paramMap(req)));
 	}
+	
+	@RequestMapping(value = "/Del_Y", method = RequestMethod.POST)
+	public ModelAndView detaildeleted(HttpServletRequest req){
+		return HttpUtil.returnJson(lsi.deleted(HttpUtil.paramMap(req)));
+	}
+	
 	}

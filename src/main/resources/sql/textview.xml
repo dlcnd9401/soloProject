@@ -6,10 +6,13 @@
 	<select id ="Novel_data" resultType="hashmap" parameterType="hashmap">
  		select * from novel where no =#{no}; 
 	</select>
+	
+		
 	<select id ="Novel_reply" resultType="hashmap" parameterType="hashmap">
-	select r.rep_contents,r.rep_id,DATE_FORMAT(r.rep_date, '%Y-%m-%d') as date from reply as r inner join novel as n
- 		on(n.stitle=r.title) where n.no =#{no} and r.del_yn = 'N' order by r.no desc; 
+	 select r.rep_contents,r.rep_id,DATE_FORMAT(r.rep_date, '%Y-%m-%d') as date from reply as r inner join novel as n
+ 		on(n.stitle=r.stitle) where n.no = #{no} and r.del_yn = 'N' and n.title=#{title} and n.sort = #{sort} order by r.no desc;
 	</select>
+	
 	<select id ="Novel_data_move" resultType="hashmap" parameterType="hashmap">
 		select no from novel where title=#{title} and sort = #{sort};
 	</select>
@@ -21,6 +24,10 @@
 	<select id ="Novel_insert_data_params" parameterType="hashmap" resultType ="hashmap">
 		select sort,id from novel where title = #{title} order by sort desc limit 1; 
 	</select>
+	<select id ="Noel_insert_Data_category" parameterType="hashmap" resultType ="hashmap">
+		select id from category where title = #{title};
+	</select>
+	
 	<update id ="Novel_Category_date_refresh" parameterType="hashmap">
 		update category set reg_date=now() where title =#{title}
 	</update>

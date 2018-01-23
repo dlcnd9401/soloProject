@@ -39,13 +39,13 @@ public class FileService implements FileServiceInterface {
 		for(int i = 0; i < file.length; i++){
 			String name = file[i].getOriginalFilename();
 			String path = "";
-			String path2 = "resources/upload/";
+			String path2 = "resources/img/";
 			System.out.println(path2 + name);
 
-			path = "D:/GIT/soloProject/src/main/webapp/" + path2;
-//			path = req.getSession().getServletContext().getRealPath("/") + path2;
+			/*path = "D:/GIT/soloProject/src/main/webapp/" + path2;*/
+			path = req.getSession().getServletContext().getRealPath("/") + path2;
 			
-			String img = path + name;
+			String img = path2 + name;
 			System.out.println(img);
 			
 			// 파일 저장 부분

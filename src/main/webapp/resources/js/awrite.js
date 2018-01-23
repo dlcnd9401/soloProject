@@ -12,6 +12,10 @@ app.controller("awrite", function($rootScope, $scope,$http,$routeParams){
 			stitle:""
 			}
 
+
+	$('#contents').val().replace(/\n/g, "<br />");
+	
+	
 	$scope.NovelIDCHECK = function(){
 		console.log($rootScope.LoginStatus);
 		if($rootScope.LoginStatus==0){
@@ -33,9 +37,19 @@ app.controller("awrite", function($rootScope, $scope,$http,$routeParams){
 	}
 }	
 	$scope.NovelIDCHECK();
-
+	
+	/*
+	$scope.con =function(){
+		var cons =  $scope.insertBowl.contents;
+		var newstr = cons.toString().replace(/\n/g, "<br>");
+		$scope.insertBowl.contents = newstr;
+		console.log($scope.insertBowl.contents);
+	}
+	
+	*/
 	
 	$scope.Novelinsert = function(){
+	/*	$scope.con();*/
 		$http.post("Novel_insert","",{params: $scope.insertBowl})
 		.then(function(result){
 			console.log("성공");

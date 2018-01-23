@@ -1,12 +1,12 @@
 <section>
     <div class ="board_big_box">
-        <div class ="textview_input" style="text-align: center; background-color:azure">
+        <div class ="textview_head2" style="text-align: center; background-color:azure">
            <p style ="margin: 1vh 0vw; font-size:1.5em;">title : <span>{{detailview.title}}</span></p>
         </div>
         
         <div class ="textview_box" style="background-color:azure;">
-            <button type = "button">수정</button>   
-        <button type = "button">삭제</button>
+ 
+        <button type = "button" data-ng-click = "boarddel()" data-ng-if="detailview.id == user.id">삭제</button>
             <p style ="font-size:2em; margin-left:3vw">Contents</p>
             <div class ="listdetail_box">
             <p>{{detailview.contents}} </p>
@@ -14,7 +14,7 @@
 
         </div>
 </div>
-	<div class="textview_head" style="height: 5vh;">
+	<div class="textview_head2" style="height: 5vh;">
             <p style="float:left; margin-left:2vw">Comments</p>
         </div>
 <div class ="textview_comments" dir-paginate="rows2 in reply_data | itemsPerPage:7">
@@ -30,11 +30,11 @@
        direction-links="true"
        boundary-links="true" >
        </dir-pagination-controls>
-            <div class="textview_input">
         <form data-ng-submit="boardset(detailview.title)" data-ng-if="LoginStatus==1">
-                <div class ="textview_input">     
-        <p >Comments : <input type="text" data-ng-model="replylist_index.req_contents" name="req_contents" placeholder ="댓글을 입력하세요." style="margin-top:1vh; width:85vw;"><button type="submit" style="width:5.5vw;margin-left:1.5vw;"> 작성 </button> </p>
-        </div>
+                <div class ="textview_input2" >     
+         <p style="width:70vw; float:left;margin:0">Comments : <input type="text" data-ng-model="replylist_index.req_contents" name="req_contents" placeholder ="댓글을 입력하세요." style="margin-top:1vh; width:80vw;"></p>
+         <button type="submit" style="width:5.5vw; float:right;"> 작성 </button> 
+	</div>      
         </form>
 	  
 </section>

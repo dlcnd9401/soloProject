@@ -53,12 +53,12 @@
 	
 	
 	<select id ="preflist" resultType="hashmap" parameterType="hashmap">
- 			select c.no,p.title,c.id,c.introduce,c.click,c.pref,c.img from `category` as c inner join `pref` as p 
+ 			select c.type,c.no,p.title,c.id,c.introduce,c.click,c.pref,c.img from `category` as c inner join `pref` as p 
  			on(c.title=p.title) where p.id = #{id} and p.del_yn ='N'
 	</select>
 	
 	<insert id="replyinsert" parameterType="hashmap">
-		insert into reply (rep_contents,rep_id,nv_repno,title) values (#{rep_contents}, #{rep_id}, #{nv_repno},#{title})
+		insert into reply (rep_contents,rep_id,nv_repno,stitle,title) values (#{rep_contents}, #{rep_id}, #{nv_repno},#{stitle},#{title})
 	</insert>
 	
 	<select id ="boarddetail_reply" resultType="hashmap" parameterType="hashmap">

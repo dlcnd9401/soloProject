@@ -49,17 +49,9 @@
             
 
 
-                <div class ="sec_in_box">
-                    <p><a href="">▷ 월간 BEST</a></p>
+                <div class ="sec_in_box"> <p><a href="">▷ 최신 문의 현황</a></p>
                 <ul>
-                    <li><a href="">1.미사역 초 역세권!</a></li>
-                    <li><a href="">2.투자는 입지다!</a></li>
-                    <li><a href="">3.비트코인 그것을 알고 싶다</a></li>
-                    <li><a href="">4.기묘한 전당포</a></li>
-                    <li><a href="">5.아저씨</a></li>
-                    <li><a href="">6.아가씨</a></li>
-                    <li><a href="">7.ABCDEFG - 알파벳에 대한 고찰</a></li>
-
+                   <li data-ng-repeat="rows in QList"><a data-ng-click="detailclick1(rows.no)">{{rows.title}}<span style="float:right;color:gray;">{{rows.date}}</span></a></li>
                     </ul>
                 </div>
             

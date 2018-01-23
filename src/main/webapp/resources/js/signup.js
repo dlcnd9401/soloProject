@@ -7,9 +7,7 @@ app.controller("signup", function($rootScope, $scope,$http){
 			id:"",
 			name:"",
 			pwchk:"",
-			pw:"",
-			tel:"",
-			book:""
+			pw:""
 	}
 
 	/*회원가입 user scope 초기화*/
@@ -18,15 +16,13 @@ app.controller("signup", function($rootScope, $scope,$http){
 					id:"",
 					name:"",
 					pwchk:"",
-					pw:"",
-					tel:"",
-					book:""
+					pw:""
 		  }
 	}
 
 	   $rootScope.signUp= function(){
       	 
-      	 if($scope.usersignup.pw==""||$scope.usersignup.pwchk==""||$scope.usersignup.name==""||$scope.usersignup.id==""||$scope.usersignup.tel==""){
+      	 if($scope.usersignup.pw==""||$scope.usersignup.pwchk==""||$scope.usersignup.name==""||$scope.usersignup.id==""){
       		 alert("정보를 모두 입력해주세요!");
       		$scope.user_reset();
       	 }else{

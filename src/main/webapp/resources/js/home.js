@@ -12,6 +12,7 @@ app.controller("home", function($rootScope, $scope,$http,$routeParams){
 			$rootScope.freeList = result.data.free
 			$rootScope.PrefList = result.data.pref
 			$rootScope.ClickList = result.data.click
+			$rootScope.QList = result.data.Quest
 				
 		},function(result){
 		})
@@ -37,6 +38,8 @@ app.controller("home", function($rootScope, $scope,$http,$routeParams){
 		console.log(param);
 		location.href="#!/adetail/" + param;
 	}
+	
+	
 });
 
 

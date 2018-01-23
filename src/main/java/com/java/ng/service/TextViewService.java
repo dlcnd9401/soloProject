@@ -34,6 +34,8 @@ public class TextViewService implements TextViewServiceInterface {
 		if(!(chk == null)){
 			param = new HashMap<String,Object>();
 			param.put("no",chk.get("no"));
+			param.put("sort",chk.get("sort"));
+			param.put("title",chk.get("title"));
 			
 			bean = new DaoBean("SelectList", ns+".Novel_reply", param);
 			
@@ -119,8 +121,17 @@ public class TextViewService implements TextViewServiceInterface {
 			result.put("Name", chk.get("id"));
 			return result;
 		}else{
-			result.put("status",0);
-			return result;
+			chk = new HashMap<String,Object>();
+			bean = new DaoBean("SelectOne",ns+".Noel_insert_Data_category",param);
+			chk = (HashMap<String, Object>)di.dao(bean);
+			if(!(chk == null)){
+				result.put("Name", chk.get("id"));
+				return result;
+			}else{
+				result.put("status",0);
+				return result;
+			}
+			
 		}
 	}
 	

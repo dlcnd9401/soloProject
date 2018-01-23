@@ -24,9 +24,7 @@ app.controller("actcreate", function($rootScope, $scope,$http,$q,FileService){
 
 /*	select box */
 
-		$scope.fieldTable = [{
-		  title: "장르"}, {title: "판타지" }, {title: "무협"},{title: "역사"}, {title: "로맨스"},
-		  {title: "로맨스 판타지"}, {title: "스릴러"}, {title: "문학"},{title: "기타"}];
+		$scope.fieldTable = [{title: "장르"}, {title: "판타지" }, {title: "무협"}, {title: "로맨스"},{title: "로맨스 판타지"}, {title: "추리"}];
 
 		 $scope.selected = $scope.fieldTable[0];
 
@@ -61,6 +59,7 @@ app.controller("actcreate", function($rootScope, $scope,$http,$q,FileService){
     			$rootScope.catelist.img = result.data.Rows[0].path + result.data.Rows[0].name;
     			console.log("img 확인 :" +$rootScope.catelist.img);
     		});
+    		location.href="#!/home";
      	 }
 			
 	}else{

@@ -27,4 +27,11 @@ public class PrefController {
 		return HttpUtil.returnJson(psi.prefchkpoint(HttpUtil.paramMap(req)));
 	}
 		
+	@RequestMapping(value="/Pref_Up", method = RequestMethod.POST)
+	public ModelAndView pref_update(HttpServletRequest req){
+		return HttpUtil.returnJson(psi.userpref_update(HttpUtil.paramMap(req)));
+	}
+	
+
+
 }
