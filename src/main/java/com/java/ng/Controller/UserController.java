@@ -31,14 +31,14 @@ public class UserController {
 		   HashMap<String, Object> map = tsi.login(HttpUtil.paramMap(req));
 		   session.setAttribute("user", map);	
 		   System.out.println("Controller : " + map);
-		return HttpUtil.returnJson(tsi.login(HttpUtil.paramMap(req)));
+		return HttpUtil.returnJson(map);
 	}
 	
 	@RequestMapping(value = "/Logoff", method = RequestMethod.POST)
 	public void LogOut(HttpServletResponse resp, HttpSession session){
 		session.invalidate();
 	}
-	
+		
 	
 	
 	

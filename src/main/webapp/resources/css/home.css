@@ -151,19 +151,19 @@ height: auto;
 
 /* 내가 본 목록 */
 .section10{
-    width: 10vw;
+    width: 8vw;
     height: 73vh;
     margin: 1vh 0vw;
     border-color:black;
     border-style:double;
-    float:right;
+    float:left;
 }
 /*하단 부분 */
 
 footer{
     width:100vw;
     height: 8vh;
-    padding: 1.5vh 0;
+    padding: 1vh 1vw;
     background-color:#F5F3EE;
 }
 .ft_box p{
@@ -174,8 +174,9 @@ footer{
     font-size:10px;
 }
 .ft_box{
-	width:100vw;
-	min-height: 10vh;
+	width:98vw;
+	heigth:auto;
+	margin:0 1vw;
 	float:left;
 }
 
@@ -260,7 +261,7 @@ font-family: 'Nanum Pen Script', serif;
 .board_box{
     width: 98vw;
     height: auto;
-    min-height: 30vh;
+    min-height: 10vh;
     margin: 1vh 1vw;
     border:1px solid black;
     
@@ -287,8 +288,9 @@ font-family: 'Nanum Pen Script', serif;
 
 .board_btn{
     width: 98vw;
-    height: 10vh;
+    height: 7vh;
     padding: 2vh 0;
+    
     border : 1px,solid,black;
 }
 
@@ -340,6 +342,7 @@ font-family: 'Nanum Pen Script', serif;
 .ad_B_part1 h2,h5{
     margin: 0;
     padding: 0;
+        
         
 }
 .ad_B_part1 h5{
@@ -438,7 +441,7 @@ height: 39vh;
 }
 
 .textview_comments{
-     width:96vw; 
+    width:96vw; 
     min-height: 15vh;
     height: auto;
     margin: 1vh 1vw;
@@ -446,6 +449,17 @@ height: 39vh;
     border: 1px solid black;
     text-align: left;
 }
+
+.textview_comments2{
+    width:98vw; 
+    min-height: 15vh;
+    height: auto;
+    margin: 1vh 1vw;
+    /* padding: 1vh 1vw; */
+    border: 1px solid black;
+    text-align: left;
+}
+
 .textview_comments p{
     font-size: 20px;
     margin: 0;

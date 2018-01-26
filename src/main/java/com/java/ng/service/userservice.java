@@ -23,7 +23,6 @@ public class userservice implements userserviceinterface {
 	public HashMap<String, Object> login(HashMap<String, Object> param) {
 		result = new HashMap<String, Object>();
 		bean = new DaoBean("SelectOne", ns+".pwcheck", param);
-		
 		chk = (HashMap<String, Object>) di.dao(bean);
 		
 		if(!(chk==null)){

@@ -5,6 +5,8 @@
         <a href ="#!/login" data-ng-if="LoginStatus==0">Log-in</a>
               <a href ="#!/signup" data-ng-if="LoginStatus==0">Sign-Up</a>
                    <a data-ng-click="logout()" data-ng-if="LoginStatus==1">Log-out</a>
+                   <a  data-ng-if="LoginStatus==1">{{user.id}} 님</a>
+                   
         </div>
         <div class="headdiv7">
         <p>Charming Page</p>

@@ -139,7 +139,6 @@ $rootScope.user_pref_id= function(prefparamuser){
 	 			$rootScope.LoginStatus = 1;
 		 		console.log("로그인 정보");
 	 			 console.log($rootScope.user);
-	 			 $rootScope.promotionCheck=$rootScope.user.auto; 
 		 		}
 	 	   },function(userdata){
 	 	   });

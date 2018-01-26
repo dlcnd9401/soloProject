@@ -5,8 +5,7 @@
 	  	<label style ="float:left;">전체 :</label> 
 	<select data-ng-options="item.title for item in fieldTable" data-ng-model="selected" data-ng-change="hasChanged()" style="float:left;">
   </select>
-  		</div>
-        <p> Author / Amateur Story</p></div>
+  		</div></div>
     <div class ="story_inbox" dir-paginate="rows in boardstory | itemsPerPage:12">
     <a data-ng-click="titleclick(rows.no)">
     <p>{{rows.title}}</p>

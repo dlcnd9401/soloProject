@@ -30,6 +30,7 @@ public class FileService implements FileServiceInterface {
 	private HashMap<String, Object> result;
 	private HashMap<String,Object> chk;
 	private DaoBean bean;
+	private String img;
 	
 	@Override
 	public HashMap<String, Object> fileOutput(MultipartFile[] file, HttpServletRequest req) {
@@ -40,13 +41,10 @@ public class FileService implements FileServiceInterface {
 			String name = file[i].getOriginalFilename();
 			String path = "";
 			String path2 = "resources/img/";
-			System.out.println(path2 + name);
 
 			/*path = "D:/GIT/soloProject/src/main/webapp/" + path2;*/
 			path = req.getSession().getServletContext().getRealPath("/") + path2;
-			
-			String img = path2 + name;
-			System.out.println(img);
+		img = path2 + name;
 			
 			// 파일 저장 부분
 			try {
@@ -72,42 +70,66 @@ public class FileService implements FileServiceInterface {
 				map.put("name", name);
 				fileList.add(map);
 				
-				
 				//insert 문 실행 
 				HashMap<String,Object> Data = new HashMap<String,Object>();
 				
+				System.out.println(img);
 				Data.put("id", req.getParameter("id"));
 				Data.put("title", req.getParameter("title"));
 				Data.put("type", req.getParameter("type"));
 				Data.put("auth", req.getParameter("auth"));
 				Data.put("introduce", req.getParameter("introduce"));
 				Data.put("img", img);
+
+				result = new HashMap<String, Object>();
+				System.out.println("insert 확인하기");
+				bean = new DaoBean("Insert", ns+".catewrite", Data);
+				result.put("status", di.dao(bean));
 				
-				ctInsert(Data);
+				
 				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 		
-		
-		
-		
-		
-		// 저장 내용 리턴 받기 위해 담기
 		resultMap = new HashMap<String, Object>();
 		resultMap.put("Rows", fileList);
 		
 		return resultMap;
+		
+
 	}
 	
 	@Override
 	public HashMap<String, Object> ctInsert(HashMap<String, Object> param) {
 		result = new HashMap<String, Object>();
+		System.out.println("insert 확인하기");
 		bean = new DaoBean("Insert", ns+".catewrite", param);
 		result.put("status", di.dao(bean));
 		return result;
+		
 	}
+
+	@Override
+	public HashMap<String, Object> fileSearch(HashMap<String, Object> param) {
+		result= new HashMap<String,Object>();
+		bean = new DaoBean("SelectOne", ns+".catechk", param);
+		chk = (HashMap<String,Object>) di.dao(bean);
+		
+		System.out.println(chk);
+		if(!(chk == null)){
+			System.out.println("insert : 실패");
+			result.put("cate", "실패");
+			return result;
+		}else{
+			System.out.println("insert : 성공");
+			result.put("cate", "성공");
+			return result;
+		}
+	}
+	
+	
 	
 	
 

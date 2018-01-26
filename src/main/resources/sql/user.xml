@@ -21,7 +21,7 @@
 	
 	
 	<select id="promotion" parameterType="hashmap" resultType="hashmap">
-		select u.no,u.id from user as u inner join category as c on (u.id =c.id) where u.id=#{id} and u.auth=2 and c.click > 999 order by c.click desc limit 1;
+		select u.no,u.id from user as u inner join category as c on (u.id =c.id) where u.id=#{id} and u.auth=2 and c.click >= 1000 order by c.click desc limit 1;
 	</select>
 	
 	<update id ="autoauth" parameterType="hashmap">

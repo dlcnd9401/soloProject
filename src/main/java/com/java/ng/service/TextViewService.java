@@ -96,7 +96,7 @@ public class TextViewService implements TextViewServiceInterface {
 			
 			return result;
 		}else{
-			param.put("sort", sort);
+			param.put("sort", 1);
 			
 			bean = new DaoBean("Insert",ns+".Novel_insert",param);
 			result.put("Stat", di.dao(bean));

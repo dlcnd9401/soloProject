@@ -8,5 +8,6 @@ public interface FileServiceInterface {
 	
 	public HashMap<String, Object> fileOutput(MultipartFile[] file, HttpServletRequest req);
 	public HashMap<String,Object> ctInsert(HashMap<String,Object>param);
+	public HashMap<String,Object> fileSearch(HashMap<String,Object>param);
 
 }

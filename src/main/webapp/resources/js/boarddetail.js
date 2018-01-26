@@ -4,11 +4,13 @@ app.controller("boarddetail", function($rootScope, $scope,$http,$routeParams){
 		no:$routeParams.detailparam
 }
 	
+	$scope.type = "";
 	$rootScope.detailview= 
 		{
 			contents:"",
 				id:"",
-				title:""
+				title:"",
+				type:""
 		};
 	
 	$rootScope.reply_data =	{};
@@ -53,14 +55,23 @@ app.controller("boarddetail", function($rootScope, $scope,$http,$routeParams){
 	/*댓글 끌어오기 */
 	$rootScope.boardset= function(paramstype){
 		console.log(paramstype);
+		
 		$rootScope.replylist_index = {
 				   title:paramstype,
 				   req_contents:$rootScope.replylist_index.req_contents,
 				   type:$rootScope.detailview.type,
 				   req_id:$rootScope.user.id
 		   }
+		if($rootScope.detailview.type=="문의"){
+			if($rootScope.user.id=="admin"){
+				$rootScope.boardinset();	
+			}else{
+				alert("관리자만 작성하실 수 있습니다.");
+			}
+		}else{
+			$rootScope.boardinset();
+		}
 		
-		$rootScope.boardinset();
 		
 	}
 	/*댓글 입력 */

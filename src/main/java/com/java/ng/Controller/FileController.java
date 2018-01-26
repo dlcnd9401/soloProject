@@ -35,5 +35,10 @@ public class FileController {
 		public ModelAndView serial1(HttpServletRequest req){
 			return HttpUtil.returnJson(fsi.ctInsert(HttpUtil.paramMap(req)));
 		}
+		
+		@RequestMapping(value="/fileSearch", method = RequestMethod.POST)
+		public ModelAndView serial(HttpServletRequest req){
+			return HttpUtil.returnJson(fsi.fileSearch(HttpUtil.paramMap(req)));
+		}
 }
 		

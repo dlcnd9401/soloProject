@@ -20,6 +20,9 @@ app.controller("qwrite", function($rootScope, $scope,$http,$routeParams){
 		}else if($scope.auth == 2){
 			$scope.Tywrite.type ="자유";
 			$scope.Tywrite.auth = $scope.auth;
+	}else{
+		$scope.Tywrite.type="문의";
+		$scope.Tywrite.auth = 4;
 	}
 		$scope.admincheck();
 }
@@ -35,11 +38,14 @@ app.controller("qwrite", function($rootScope, $scope,$http,$routeParams){
 				alert("잘못된 경로입니다. 공지 게시판은 관리자만 작성할 수 있습니다!");
 				location.href="#!/home";
 			}
-		}else if($scope.Tywrite.auth==1){
-			if(!($rootScope.user.auth == $scope.Tywrite.auth)){
+		}else if($scope.Tywrite.auth==1 || $rootScope.user.auto==1){
+			if($scope.Tywrite.auth==1 || $rootScope.user.auto==1){
+				
+			}else{
 				alert("잘못된 경로입니다. 작가분들만 작성하실 수 있습니다!");
 				location.href="#!/home";
 			}
+			
 		}
 	}
 }
@@ -54,7 +60,8 @@ app.controller("qwrite", function($rootScope, $scope,$http,$routeParams){
      	 console.log("확인 : ", $scope.Tywrite);
      	 $http.post("Authwrite","",{params: $scope.Tywrite})
    	   .then(function(result){
-   		  location.href = "#!/board";
+   		   alert($scope.Tywrite.type + " 게시글이 등록되었습니다!");
+   		  location.href = "#!/board/" + $scope.Tywrite.type;
    	   },function(result){
    		   console.log(result);
    	   });

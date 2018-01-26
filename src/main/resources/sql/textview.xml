@@ -7,7 +7,6 @@
  		select * from novel where no =#{no}; 
 	</select>
 	
-		
 	<select id ="Novel_reply" resultType="hashmap" parameterType="hashmap">
 	 select r.rep_contents,r.rep_id,DATE_FORMAT(r.rep_date, '%Y-%m-%d') as date from reply as r inner join novel as n
  		on(n.stitle=r.stitle) where n.no = #{no} and r.del_yn = 'N' and n.title=#{title} and n.sort = #{sort} order by r.no desc;

@@ -1,5 +1,6 @@
 var app = angular.module("Board",['angularUtils.directives.dirPagination']);
 app.controller("board", function($rootScope, $scope,$http,$routeParams){
+	$rootScope.loginCheck();
 	$rootScope.type = {
 			type: $routeParams.boardtype
 		}
@@ -35,11 +36,13 @@ app.controller("board", function($rootScope, $scope,$http,$routeParams){
 			}else if($rootScope.type.type=="자유"){
 				location.href ="#!/qwrite/" + $rootScope.list_auth;
 			}else if($rootScope.type.type=="연재"){
-				if(!($rootScope.user.auth == 1)){
+				if(!($rootScope.user.auth == 1 || $rootScope.user.auto==1)){
 					alert("'연재'게시글은 작가만 작성할 수 있습니다.");
 				}else{
 					location.href ="#!/qwrite/" + $rootScope.list_auth ;
 				}
+			}else if($rootScope.type.type=="문의"){
+				location.href ="#!/qwrite/" + $rootScope.list_auth ;
 			}
 		}
 		
